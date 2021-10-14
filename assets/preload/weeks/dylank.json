@@ -1,0 +1,39 @@
+{
+	"songs": [
+		[
+			"inquiry",
+			"dad",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"endless",
+			"dad",
+			[
+				146,
+				113,
+				253
+			]
+		]
+	],
+	"hideFreeplay": false,
+	"weekBackground": "dylan",
+	"weekCharacters": [
+		"",
+		"bf",
+		"gf"
+	],
+	"storyName": "haha dylank",
+	"weekName": "VsDylan Week1",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"hideStoryMode": false,
+	"weekBefore": "tutorial",
+	"startUnlocked": true
+}
