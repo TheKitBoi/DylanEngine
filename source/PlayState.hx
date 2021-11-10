@@ -1007,7 +1007,8 @@ class PlayState extends MusicBeatState
 				case 'senpai' | 'roses' | 'thorns':
 					if(daSong == 'roses') FlxG.sound.play(Paths.sound('ANGRY'));
 					schoolIntro(doof);
-
+				case 'inquiry':
+					startDialogue(dialogueJson);
 				default:
 					startCountdown();
 			}
@@ -1942,7 +1943,8 @@ class PlayState extends MusicBeatState
 				boyfriendIdleTime = 0;
 			}
 		}
-
+		if (dad.animation.curAnim.name.startsWith('sing')) health -= 0.01;
+		
 		super.update(elapsed);
 
 		if(ratingString == '?') {
@@ -2270,6 +2272,15 @@ class PlayState extends MusicBeatState
 						daNote.kill();
 						notes.remove(daNote, true);
 						daNote.destroy();
+						if (SONG.song.toLowerCase()=='disruption')
+
+							{
+							
+							gf.playAnim('scared');
+							
+							FlxG.camera.shake(0.005);
+							
+							}
 					}
 				}
 
@@ -2277,7 +2288,9 @@ class PlayState extends MusicBeatState
 					if(daNote.isSustainNote) {
 						if(daNote.canBeHit) {
 							goodNoteHit(daNote);
+							
 						}
+
 					} else if(daNote.strumTime <= Conductor.songPosition || (daNote.isSustainNote && daNote.canBeHit && daNote.mustPress)) {
 						goodNoteHit(daNote);
 					}

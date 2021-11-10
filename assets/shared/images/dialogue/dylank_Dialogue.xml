@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="dylank_Dialogue.png">
+	<!-- Created with Adobe Animate version 21.0.9.42677 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="DylanK0000" x="0" y="0" width="562" height="381"/>
+	<SubTexture name="DylanK0001" x="0" y="0" width="562" height="381"/>
+	<SubTexture name="DylanK0002" x="562" y="0" width="562" height="381"/>
+	<SubTexture name="DylanK0003" x="1124" y="0" width="562" height="381"/>
+	<SubTexture name="DylanK0004" x="1686" y="0" width="562" height="381"/>
+	<SubTexture name="DylanK0005" x="2248" y="0" width="562" height="381"/>
+	<SubTexture name="DylanK0006" x="2810" y="0" width="562" height="381"/>
+	<SubTexture name="DylanK0007" x="3372" y="0" width="562" height="381"/>
+	<SubTexture name="DylanK0008" x="3934" y="0" width="562" height="381"/>
+	<SubTexture name="DylanK0009" x="4496" y="0" width="562" height="381"/>
+	<SubTexture name="DylanK0010" x="5058" y="0" width="562" height="381"/>
+	<SubTexture name="DylanK0011" x="5620" y="0" width="562" height="381"/>
+	<SubTexture name="DylanK0012" x="6182" y="0" width="562" height="381"/>
+	<SubTexture name="DylanK0013" x="6744" y="0" width="562" height="381"/>
+	<SubTexture name="DylanK0014" x="7306" y="0" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0000" x="0" y="381" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0001" x="562" y="381" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0002" x="1124" y="381" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0003" x="1686" y="381" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0004" x="2248" y="381" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0005" x="2810" y="381" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0006" x="3372" y="381" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0007" x="3934" y="381" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0008" x="4496" y="381" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0009" x="5058" y="381" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0010" x="5620" y="381" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0011" x="6182" y="381" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0012" x="6744" y="381" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0013" x="7306" y="381" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0014" x="0" y="762" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0015" x="562" y="762" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0016" x="1124" y="762" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0017" x="1686" y="762" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0018" x="2248" y="762" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0019" x="2810" y="762" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0020" x="3372" y="762" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0021" x="3934" y="762" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0022" x="4496" y="762" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0023" x="5058" y="762" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0024" x="5620" y="762" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0025" x="6182" y="762" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0026" x="6744" y="762" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0027" x="7306" y="762" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0028" x="0" y="1143" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0029" x="562" y="1143" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0030" x="1124" y="1143" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0031" x="1686" y="1143" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0032" x="2248" y="1143" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0033" x="2810" y="1143" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0034" x="3372" y="1143" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0035" x="3934" y="1143" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0036" x="4496" y="1143" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0037" x="5058" y="1143" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0038" x="5620" y="1143" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0039" x="6182" y="1143" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0040" x="6744" y="1143" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0041" x="7306" y="1143" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0042" x="0" y="1524" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0043" x="562" y="1524" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0044" x="1124" y="1524" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0045" x="1686" y="1524" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0046" x="2248" y="1524" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0047" x="2810" y="1524" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0048" x="3372" y="1524" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0049" x="3934" y="1524" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0050" x="4496" y="1524" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0051" x="5058" y="1524" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0052" x="4496" y="1524" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0053" x="5620" y="1524" width="562" height="381"/>
+	<SubTexture name="DylanK Confused0054" x="0" y="381" width="562" height="381"/>
+	<SubTexture name="DylanK Confused Loop0000" x="6182" y="1524" width="562" height="381"/>
+	<SubTexture name="DylanK Excited0000" x="6744" y="1524" width="562" height="381"/>
+	<SubTexture name="DylanK Excited0001" x="7306" y="1524" width="562" height="381"/>
+	<SubTexture name="DylanK Excited0002" x="0" y="1905" width="562" height="381"/>
+	<SubTexture name="DylanK Excited0003" x="562" y="1905" width="562" height="381"/>
+	<SubTexture name="DylanK Excited0004" x="1124" y="1905" width="562" height="381"/>
+	<SubTexture name="DylanK Excited0005" x="1686" y="1905" width="562" height="381"/>
+	<SubTexture name="DylanK Excited0006" x="2248" y="1905" width="562" height="381"/>
+	<SubTexture name="DylanK Excited0007" x="2810" y="1905" width="562" height="381"/>
+	<SubTexture name="DylanK Excited0008" x="3372" y="1905" width="562" height="381"/>
+	<SubTexture name="DylanK Excited0009" x="3934" y="1905" width="562" height="381"/>
+	<SubTexture name="DylanK Excited0010" x="4496" y="1905" width="562" height="381"/>
+	<SubTexture name="DylanK Excited0011" x="5058" y="1905" width="562" height="381"/>
+	<SubTexture name="DylanK Excited Loop0000" x="6744" y="1524" width="562" height="381"/>
+	<SubTexture name="DylanK Excited Loop0001" x="7306" y="1524" width="562" height="381"/>
+	<SubTexture name="DylanK Excited Loop0002" x="0" y="1905" width="562" height="381"/>
+	<SubTexture name="DylanK Excited Loop0003" x="562" y="1905" width="562" height="381"/>
+	<SubTexture name="DylanK Excited Loop0004" x="1124" y="1905" width="562" height="381"/>
+	<SubTexture name="DylanK Excited Loop0005" x="1686" y="1905" width="562" height="381"/>
+	<SubTexture name="DylanK Excited Loop0006" x="2248" y="1905" width="562" height="381"/>
+	<SubTexture name="DylanK Excited Loop0007" x="2810" y="1905" width="562" height="381"/>
+	<SubTexture name="DylanK Excited Loop0008" x="3372" y="1905" width="562" height="381"/>
+	<SubTexture name="DylanK Excited Loop0009" x="3934" y="1905" width="562" height="381"/>
+	<SubTexture name="DylanK Excited Loop0010" x="4496" y="1905" width="562" height="381"/>
+	<SubTexture name="DylanK Excited Loop0011" x="5058" y="1905" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0000" x="5620" y="1905" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0001" x="6182" y="1905" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0002" x="6744" y="1905" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0003" x="7306" y="1905" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0004" x="0" y="2286" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0005" x="562" y="2286" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0006" x="1124" y="2286" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0007" x="1686" y="2286" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0008" x="2248" y="2286" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0009" x="2810" y="2286" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0010" x="3372" y="2286" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0011" x="3934" y="2286" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0012" x="4496" y="2286" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0013" x="5058" y="2286" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0014" x="5620" y="2286" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0015" x="6182" y="2286" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0016" x="6744" y="2286" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0017" x="7306" y="2286" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0018" x="0" y="2667" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0019" x="562" y="2667" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0020" x="1124" y="2667" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0021" x="1686" y="2667" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0022" x="2248" y="2667" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0023" x="2810" y="2667" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0024" x="3372" y="2667" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0025" x="3934" y="2667" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0026" x="7306" y="0" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0027" x="4496" y="2667" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0028" x="5058" y="2667" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0029" x="5620" y="2667" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0030" x="6182" y="2667" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0031" x="6744" y="2667" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0032" x="7306" y="2667" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0033" x="0" y="3048" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0034" x="562" y="3048" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0035" x="1124" y="3048" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0036" x="1686" y="3048" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0037" x="2248" y="3048" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0038" x="2810" y="3048" width="562" height="381"/>
+	<SubTexture name="DylanK Loop0039" x="5620" y="1905" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed0000" x="3372" y="3048" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed0001" x="3934" y="3048" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed0002" x="4496" y="3048" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed0003" x="5058" y="3048" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed0004" x="5620" y="3048" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed0005" x="6182" y="3048" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed0006" x="6744" y="3048" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed0007" x="7306" y="3048" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed0008" x="0" y="3429" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed0009" x="562" y="3429" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed0010" x="1124" y="3429" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed0011" x="1686" y="3429" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed0012" x="2248" y="3429" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed0013" x="2810" y="3429" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed0014" x="3372" y="3429" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed0015" x="3934" y="3429" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed0016" x="4496" y="3429" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed0017" x="5058" y="3429" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed0018" x="5620" y="3429" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed0019" x="6182" y="3429" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed0020" x="6744" y="3429" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0000" x="3372" y="3048" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0001" x="7306" y="3429" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0002" x="0" y="3810" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0003" x="562" y="3810" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0004" x="1124" y="3810" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0005" x="1686" y="3810" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0006" x="2248" y="3810" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0007" x="2810" y="3810" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0008" x="3372" y="3810" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0009" x="3934" y="3810" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0010" x="4496" y="3810" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0011" x="5058" y="3810" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0012" x="5620" y="3810" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0013" x="6182" y="3810" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0014" x="6744" y="3810" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0015" x="7306" y="3810" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0016" x="0" y="4191" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0017" x="562" y="4191" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0018" x="1124" y="4191" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0019" x="1686" y="4191" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0020" x="2248" y="4191" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0021" x="2810" y="4191" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0022" x="3372" y="4191" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0023" x="3934" y="4191" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0024" x="4496" y="4191" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0025" x="5058" y="4191" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0026" x="5620" y="4191" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0027" x="6182" y="4191" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0028" x="6744" y="4191" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0029" x="7306" y="4191" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0030" x="0" y="4572" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0031" x="562" y="4572" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0032" x="1124" y="4572" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0033" x="1686" y="4572" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0034" x="2248" y="4572" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0035" x="2810" y="4572" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0036" x="3372" y="4572" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0037" x="3934" y="4572" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0038" x="4496" y="4572" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0039" x="5058" y="4572" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0040" x="5620" y="4572" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0041" x="6182" y="4572" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0042" x="6744" y="4572" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0043" x="7306" y="4572" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0044" x="0" y="4953" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0045" x="562" y="4953" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0046" x="1124" y="4953" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0047" x="1686" y="4953" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0048" x="2248" y="4953" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0049" x="2810" y="4953" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0050" x="3372" y="4953" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0051" x="3934" y="4953" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0052" x="4496" y="4953" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0053" x="5058" y="4953" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0054" x="5620" y="4953" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0055" x="6182" y="4953" width="562" height="381"/>
+	<SubTexture name="DylanK Pissed Loop0056" x="3372" y="3048" width="562" height="381"/>
+	<SubTexture name="DylanK Shock0000" x="6744" y="4953" width="562" height="381"/>
+	<SubTexture name="DylanK Shock Loop0000" x="7306" y="4953" width="332" height="289"/>
+</TextureAtlas>

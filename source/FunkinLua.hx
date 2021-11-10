@@ -81,6 +81,7 @@ class FunkinLua {
 
 		// Song/Week shit
 		set('curBpm', Conductor.bpm);
+		set('songPos', Conductor.songPosition);
 		set('bpm', PlayState.SONG.bpm);
 		set('scrollSpeed', PlayState.SONG.speed);
 		set('crochet', Conductor.crochet);
