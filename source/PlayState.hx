@@ -1027,6 +1027,11 @@ class PlayState extends MusicBeatState
 		// Updating Discord Rich Presence.
 		DiscordClient.changePresence(detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 		#end
+		
+		
+		callOnLuas('onCreatePost', []);
+		
+		
 		super.create();
 	}
 
@@ -1541,6 +1546,16 @@ class PlayState extends MusicBeatState
 					swagNote.sustainLength = songNotes[2];
 					swagNote.noteType = songNotes[3];
 					if(!Std.isOfType(songNotes[3], String)) swagNote.noteType = editors.ChartingState.noteTypeList[songNotes[3]]; //Backward compatibility + compatibility with Week 7 charts
+					
+					
+					if (section.gfSection){
+							trace("got gf section");
+						if (songNotes[3] == null || songNotes[3] == ''|| songNotes[3].length ==0){
+							swagNote.noteType = 'GF Sing';
+							trace("got gf notes");
+						}
+					}
+					
 					swagNote.scrollFactor.set();
 
 					var susLength:Float = swagNote.sustainLength;
@@ -2685,6 +2700,7 @@ class PlayState extends MusicBeatState
 					}
 				}
 
+
 			case 'Change Character':
 				var charType:Int = 0;
 				switch(value1) {
@@ -2766,17 +2782,29 @@ class PlayState extends MusicBeatState
 		if (!SONG.notes[id].mustHitSection)
 		{
 			moveCamera(true);
-			callOnLuas('onMoveCamera', ['dad']);
+			
+			if (SONG.notes[id].gfSection){
+				callOnLuas('onMoveCamera', ['gf']);
+			}else{
+				callOnLuas('onMoveCamera', ['dad']);
+			}
 		}
 		else
 		{
 			moveCamera(false);
-			callOnLuas('onMoveCamera', ['boyfriend']);
+			if (SONG.notes[id].gfSection){
+				callOnLuas('onMoveCamera', ['gf']);
+			}else{
+				callOnLuas('onMoveCamera', ['boyfriend']);
+			}
 		}
 	}
 
 	var cameraTwn:FlxTween;
 	public function moveCamera(isDad:Bool) {
+		
+		
+		
 		if(isDad) {
 			camFollow.set(dad.getMidpoint().x + 150, dad.getMidpoint().y - 100);
 			camFollow.x += dad.cameraPosition[0];
@@ -2806,6 +2834,17 @@ class PlayState extends MusicBeatState
 				});
 			}
 		}
+		
+		
+		
+		if (SONG.notes[Std.int(curStep / 16)].gfSection){
+			
+			camFollow.set(gf.getMidpoint().x, gf.getMidpoint().y);
+			camFollow.x += gf.cameraPosition[0];
+			camFollow.y += gf.cameraPosition[1];
+			tweenCamIn();
+		}
+		
 	}
 
 	function tweenCamIn() {
