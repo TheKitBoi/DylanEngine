@@ -1958,7 +1958,7 @@ class PlayState extends MusicBeatState
 				boyfriendIdleTime = 0;
 			}
 		}
-		if (dad.animation.curAnim.name.startsWith('sing')) health -= 0.01;
+		if (dad.animation.curAnim.name.startsWith('sing')) health -= 0.0005;
 		
 		super.update(elapsed);
 
@@ -2295,6 +2295,14 @@ class PlayState extends MusicBeatState
 							
 							FlxG.camera.shake(0.005);
 							
+							}
+						if (SONG.song.toLowerCase()=='applecore')
+
+							{
+							
+							gf.playAnim('scared');
+							
+							FlxG.camera.shake(0.005);
 							}
 					}
 				}
