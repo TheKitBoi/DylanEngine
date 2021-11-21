@@ -462,6 +462,21 @@ class PlayState extends MusicBeatState
 					UsingNewCam = true;
 				}
 
+				if (SONG.song.toLowerCase()=='mealie')
+					{
+					
+						stageData = {
+							directory: "dylan",
+							defaultZoom: 0.9,
+							isPixelStage: false,
+						
+							boyfriend: [770, 100],
+							girlfriend: [400, 130],
+							opponent: [120, -20]
+						};
+					
+					}
+
 			case 'applecore3': //Week 4
 				defaultCamZoom = 0.7;
 				var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('dylan/yeah'));
@@ -1720,7 +1735,7 @@ class PlayState extends MusicBeatState
 			}
 		}
 		
-		if (SONG.song.toLowerCase()=='applecore')
+		if ()
 
 			{
 			
@@ -1728,7 +1743,7 @@ class PlayState extends MusicBeatState
 			if (dad.animation.curAnim.name.startsWith('sing')) health -= 0.00005;
 			
 			}
-		if (SONG.song.toLowerCase()=='applecore-part-2')
+		if (SONG.song.toLowerCase()=='applecore-part-2' | SONG.song.toLowerCase()=='applecore' | SONG.song.toLowerCase()=='applecore-part-3' | SONG.song.toLowerCase()=='mealie')
 			{
 			
 			if (gf.animation.curAnim.name.startsWith('sing')) health -= 0.00005;

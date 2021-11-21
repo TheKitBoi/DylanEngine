@@ -1,5 +1,4 @@
 applecore:bamb:9
 applecore-part-2:bamb:9
 applecore-part-3:bamb:9
-polygonized:davis:9
 mealie:bamb:9
