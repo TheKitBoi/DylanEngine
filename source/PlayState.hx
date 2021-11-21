@@ -1735,15 +1735,23 @@ class PlayState extends MusicBeatState
 			}
 		}
 		
-		if ()
-
+		if (SONG.song.toLowerCase()=='applecore-part-3')
 			{
 			
-			
+			if (gf.animation.curAnim.name.startsWith('sing')) health -= 0.00005;
 			if (dad.animation.curAnim.name.startsWith('sing')) health -= 0.00005;
 			
 			}
-		if (SONG.song.toLowerCase()=='applecore-part-2' | SONG.song.toLowerCase()=='applecore' | SONG.song.toLowerCase()=='applecore-part-3' | SONG.song.toLowerCase()=='mealie')
+
+		if (SONG.song.toLowerCase()=='applecore')
+			{
+			
+			if (gf.animation.curAnim.name.startsWith('sing')) health -= 0.00005;
+			if (dad.animation.curAnim.name.startsWith('sing')) health -= 0.00005;
+			
+			}	
+		
+		if (SONG.song.toLowerCase()=='applecore-part-2')
 			{
 			
 			if (gf.animation.curAnim.name.startsWith('sing')) health -= 0.00005;
@@ -1751,6 +1759,13 @@ class PlayState extends MusicBeatState
 			
 			}
 			
+		if (SONG.song.toLowerCase()=='mealie')
+			{
+			
+			if (gf.animation.curAnim.name.startsWith('sing')) health -= 0.00005;
+			if (dad.animation.curAnim.name.startsWith('sing')) health -= 0.00005;
+			
+			}
 		super.update(elapsed);
 
 		if(ratingString == '?') {
