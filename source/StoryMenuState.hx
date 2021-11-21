@@ -34,6 +34,8 @@ class StoryMenuState extends MusicBeatState
 
 	var txtWeekTitle:FlxText;
 	var bgSprite:FlxSprite;
+	var isCutscene:Bool = false;
+
 
 	private static var curWeek:Int = 0;
 
@@ -294,12 +296,38 @@ class StoryMenuState extends MusicBeatState
 			PlayState.storyWeek = curWeek;
 			PlayState.campaignScore = 0;
 			PlayState.campaignMisses = 0;
+			
+			var video:MP4Handler = new MP4Handler();
+
+			if (curWeek == 0 && !isCutscene) // Checks if the current week is garAlley.
 			new FlxTimer().start(1, function(tmr:FlxTimer)
 			{
-				LoadingState.loadAndSwitchState(new PlayState(), true);
-				FreeplayState.destroyFreeplayVocals();
+				{
+					
+					video.playMP4(Paths.video('Unfair'));
+					video.finishCallback = function()
+					{
+						LoadingState.loadAndSwitchState(new PlayState());
+					}
+					
+					isCutscene = true;
+				}
 			});
-		} else {
+			else
+			{
+				new FlxTimer().start(1, function(tmr:FlxTimer)
+				{
+					if (isCutscene)
+						video.onVLCComplete();
+
+					LoadingState.loadAndSwitchState(new PlayState(), true);
+				});
+			}
+		}
+
+
+		 
+		else {
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 		}
 	}

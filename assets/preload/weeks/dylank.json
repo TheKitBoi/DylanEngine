@@ -1,8 +1,8 @@
 {
 	"songs": [
 		[
-			"inquiry",
-			"dad",
+			"applecore",
+			"menu_bamb",
 			[
 				146,
 				113,
@@ -10,8 +10,17 @@
 			]
 		],
 		[
-			"endless",
-			"dad",
+			"applecore-part-2",
+			"menu_bamb",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"applecore-part-3",
+			"menu_bamb",
 			[
 				146,
 				113,
@@ -20,14 +29,14 @@
 		]
 	],
 	"hideFreeplay": false,
-	"weekBackground": "dylan",
+	"weekBackground": "stage",
 	"weekCharacters": [
-		"",
+		"menu_bamb",
 		"bf",
 		"gf"
 	],
-	"storyName": "haha dylank",
-	"weekName": "VsDylan Week1",
+	"storyName": "Vs bambis",
+	"weekName": "Custom Week",
 	"freeplayColor": [
 		146,
 		113,

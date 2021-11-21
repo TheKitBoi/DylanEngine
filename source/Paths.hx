@@ -165,6 +165,7 @@ class Paths
 	{
 		return sound(key + FlxG.random.int(min, max), library);
 	}
+		
 
 	inline static public function music(key:String, ?library:String):Dynamic
 	{
