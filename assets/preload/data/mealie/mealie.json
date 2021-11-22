@@ -1,11 +1,10 @@
 {
 	"song": {
+		"player1": "bf",
 		"sectionLengths": [],
-		"player1": "d-bf",
+		"player2": "pissedfarmer",
 		"notes": [
 			{
-				"lengthInSteps": 160000,
-				"typeOfSection": 0,
 				"sectionNotes": [
 					[
 						11562,
@@ -12678,31 +12677,43 @@
 						-218328
 					]
 				],
-				"altAnim": false,
+				"typeOfSection": 0,
+				"lengthInSteps": 160000,
 				"stage": "yeah",
-				"changeBPM": true,
+				"altAnim": false,
+				"mustHitSection": true,
 				"bpm": 167,
-				"mustHitSection": true
+				"changeBPM": true
 			},
 			{
-				"gfSection": false,
-				"lengthInSteps": 16,
-				"altAnim": false,
-				"typeOfSection": 0,
 				"sectionNotes": [],
-				"bpm": 167,
+				"typeOfSection": 0,
+				"lengthInSteps": 16,
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": true,
 				"changeBPM": false,
-				"mustHitSection": true
+				"bpm": 167
 			},
 			{
-				"gfSection": false,
-				"lengthInSteps": 16,
-				"altAnim": false,
-				"typeOfSection": 0,
 				"sectionNotes": [],
-				"bpm": 167,
+				"typeOfSection": 0,
+				"lengthInSteps": 16,
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": true,
 				"changeBPM": false,
-				"mustHitSection": true
+				"bpm": 167
+			},
+			{
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"lengthInSteps": 16,
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 167
 			},
 			{
 				"gfSection": false,
@@ -12715,14 +12726,13 @@
 				"mustHitSection": true
 			}
 		],
-		"player2": "pissedfarmer",
-		"player3": "d-gf",
+		"player3": "banduP2",
 		"song": "mealie",
+		"validScore": true,
+		"sections": 1,
 		"stage": "applecore2",
 		"needsVoices": true,
-		"sections": 1,
-		"validScore": true,
-		"speed": 3.15,
-		"bpm": 167
+		"bpm": 167,
+		"speed": 3.15
 	}
 }

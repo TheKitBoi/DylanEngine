@@ -174,6 +174,7 @@ class PlayState extends MusicBeatState
 
 	private var timeBarBG:AttachedSprite;
 	public var timeBar:FlxBar;
+	
 
 	private var generatedMusic:Bool = false;
 	public var endingSong:Bool = false;
@@ -199,7 +200,7 @@ class PlayState extends MusicBeatState
 
 	var halloweenBG:BGSprite;
 	var halloweenWhite:BGSprite;
-
+	var daBackground:BackgroundSprite;
 	var phillyCityLights:FlxTypedGroup<BGSprite>;
 	var phillyTrain:BGSprite;
 	var blammedLightsBlack:ModchartSprite;
@@ -1564,6 +1565,13 @@ class PlayState extends MusicBeatState
 				opponentStrums.add(babyArrow);
 			}
 
+			if(SONG.song.toLowerCase() != 'applecore-part-3')
+				{
+					babyArrow.y -= 115;
+					FlxTween.tween(babyArrow, {y: babyArrow.y + 115}, 1, {ease: FlxEase.backInOut});
+				}
+			FlxTween.tween(babyArrow, {alpha: 0.65}, 1, {ease: FlxEase.cubeInOut});
+
 			strumLineNotes.add(babyArrow);
 			babyArrow.postAddedToGroup();
 		}
@@ -1762,8 +1770,8 @@ class PlayState extends MusicBeatState
 		if (SONG.song.toLowerCase()=='mealie')
 			{
 			
-			if (gf.animation.curAnim.name.startsWith('sing')) health -= 0.00005;
-			if (dad.animation.curAnim.name.startsWith('sing')) health -= 0.00005;
+			if (gf.animation.curAnim.name.startsWith('sing')) health -= 0.0005;
+			if (dad.animation.curAnim.name.startsWith('sing')) health -= 0.0005;
 			
 			}
 		super.update(elapsed);
@@ -2111,6 +2119,13 @@ class PlayState extends MusicBeatState
 							FlxG.camera.shake(0.005);
 							}
 						if (SONG.song.toLowerCase()=='applecore-part-2')
+							{
+							
+							if (gf.animation.curAnim.name.startsWith('sing')) health -= 0.00005;
+							if (dad.animation.curAnim.name.startsWith('sing')) health -= 0.00005;
+							FlxG.camera.shake(0.005);
+							}
+						if (SONG.song.toLowerCase()=='mealie')
 							{
 							
 							if (gf.animation.curAnim.name.startsWith('sing')) health -= 0.00005;
@@ -2819,8 +2834,8 @@ class PlayState extends MusicBeatState
 						FlxG.sound.play(Paths.sound('Lights_Shut_off'));
 					}
 
-					FlxTransitionableState.skipNextTransIn = true;
-					FlxTransitionableState.skipNextTransOut = true;
+					FlxTransitionableState.skipNextTransIn = false;
+					FlxTransitionableState.skipNextTransOut = false;
 					
 
 
@@ -2875,18 +2890,6 @@ class PlayState extends MusicBeatState
 		achievementObj = null;
 		if(endingSong && !inCutscene) {
 			endSong();
-			if (SONG.song.toLowerCase()=='applecore-part-3')
-				{
-				
-					var video:MP4Handler = new MP4Handler();
-
-					video.playMP4(Paths.video('Unfair'));
-					video.finishCallback = function()
-					{
-						LoadingState.loadAndSwitchState(new PlayState());
-					}
-				
-				}
 		}
 		
 	}
@@ -3618,9 +3621,50 @@ class PlayState extends MusicBeatState
 			return;
 		}
 
+		if (curStep == 1475 && curSong.toLowerCase() == 'applecore-part-2'){
+			daBackground.switchbg(false);
+			curStage = 'applecore3';
+			var oldbx = boyfriend.x;
+			var oldby = boyfriend.y;
+			var olddx = dad.x; 
+			var olddy = dad.y;
+			FlxG.camera.flash(FlxColor.WHITE, 5);
+			defaultCamZoom = 0.35;
+			remove(boyfriend);
+			boyfriend = new Boyfriend(oldbx, oldby, 'bf');
+			add(boyfriend);
+
+			remove(dad);
+			dad = new Character(olddx, olddy, 'unfair');
+			add(dad);
+		}
+
+		if (curStep == 900 && curSong.toLowerCase() == 'applecore'){
+			daBackground.switchbg(false);
+			curStage = 'applecore2';
+			var oldbx = boyfriend.x;
+			var oldby = boyfriend.y;
+			var olddx = dad.x; 
+			var olddy = dad.y;
+			FlxG.camera.flash(FlxColor.WHITE, 5);
+			defaultCamZoom = 0.35;
+			remove(boyfriend);
+			boyfriend = new Boyfriend(oldbx, oldby, 'bf');
+			add(boyfriend);
+
+			remove(dad);
+			dad = new Character(olddx, olddy, 'pissedfarmer');
+			add(dad);
+
+			remove(gf);
+			gf = new Character(olddx, olddy, 'banduP2');
+			add(gf);
+		}
+
 		lastStepHit = curStep;
 		setOnLuas('curStep', curStep);
 		callOnLuas('onStepHit', []);
+
 	}
 
 	var lightningStrikeBeat:Int = 0;

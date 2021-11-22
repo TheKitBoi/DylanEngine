@@ -73,6 +73,8 @@ class StoryMenuState extends MusicBeatState
 		rankText.size = scoreText.size;
 		rankText.screenCenter(X);
 
+		
+
 		var ui_tex = Paths.getSparrowAtlas('campaign_menu_UI_assets');
 		var bgYellow:FlxSprite = new FlxSprite(0, 56).makeGraphic(FlxG.width, 386, 0xFFF9CF51);
 		bgSprite = new FlxSprite(0, 56);
@@ -93,6 +95,12 @@ class StoryMenuState extends MusicBeatState
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
 		#end
+
+		new FlxTimer().start(1, function(tmr:FlxTimer)
+			{
+				LoadingState.loadAndSwitchState(new PlayState(), true);
+			});
+			
 
 		for (i in 0...WeekData.weeksList.length)
 		{
@@ -296,37 +304,7 @@ class StoryMenuState extends MusicBeatState
 			PlayState.storyWeek = curWeek;
 			PlayState.campaignScore = 0;
 			PlayState.campaignMisses = 0;
-			
-			var video:MP4Handler = new MP4Handler();
-
-			if (curWeek == 0 && !isCutscene) // Checks if the current week is garAlley.
-			new FlxTimer().start(1, function(tmr:FlxTimer)
-			{
-				{
-					
-					video.playMP4(Paths.video('Unfair'));
-					video.finishCallback = function()
-					{
-						LoadingState.loadAndSwitchState(new PlayState());
-					}
-					
-					isCutscene = true;
-				}
-			});
-			else
-			{
-				new FlxTimer().start(1, function(tmr:FlxTimer)
-				{
-					if (isCutscene)
-						video.onVLCComplete();
-
-					LoadingState.loadAndSwitchState(new PlayState(), true);
-				});
-			}
-		}
-
-
-		 
+		}	 
 		else {
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 		}
