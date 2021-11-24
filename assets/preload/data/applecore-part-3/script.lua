@@ -9,7 +9,7 @@ local del = 0;
 local del2 = 0;
 local angleshit = 1;
 local anglevar = 1;
-local value2 = 360;
+local value2 = 180;
 local value1 = 1;
 
 function onUpdate(elapsed)
@@ -26,7 +26,6 @@ function onUpdate(elapsed)
       noteTweenAngle('G',2 , value2 , value1, linear);
       noteTweenAngle('H',3 , value2 , value1, linear);
     end
-
     if curBeat>1 then
 		noteTweenX(defaultPlayerStrumX0, 4, defaultPlayerStrumX0+10*math.sin((currentBeat+4*0.25)*math.pi), 0.3, circInOut)
 		noteTweenX(defaultPlayerStrumX1, 5, defaultPlayerStrumX1+10*math.sin((currentBeat+5*0.25)*math.pi), 0.3, circInOut)
@@ -34,24 +33,19 @@ function onUpdate(elapsed)
 		noteTweenX(defaultPlayerStrumX3, 7, defaultPlayerStrumX3+10*math.sin((currentBeat+7*0.25)*math.pi), 0.3, circInOut)
         
 	end
-
-          if followchars == true then
-          if mustHitSection == false then
-              setProperty('defaultCamZoom',0.7)
-          else
-              setProperty('defaultCamZoom',0.9)
-          end
-      end
-
-  end
-
-
+    if followchars == true then
+        if mustHitSection == false then
+            setProperty('defaultCamZoom',0.6)
+        else
+            setProperty('defaultCamZoom',0.9)
+        end
+    end
+end
 
 function onCreate()
     keepScroll = getPropertyFromClass('ClientPrefs', 'middleScroll');
     setPropertyFromClass('ClientPrefs', 'middleScroll', true);
 end
-
 function onDestroy()
     if not keepScroll then
         setPropertyFromClass('ClientPrefs', 'middleScroll', false);

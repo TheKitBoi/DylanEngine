@@ -24,11 +24,12 @@ class OutdatedState extends MusicBeatState
 		add(bg);
 
 		warnText = new FlxText(0, 0, FlxG.width,
-			"Sup bro, looks like you're running an   \n
-			outdated version of Dylan Engine! (" + MainMenuState.dEngineVersion + "),\n
+			"Seems like you're running an   \n
+			outdated version of DylanEngine (" + MainMenuState.dEngineVersion + "),\n
 			please update to " + TitleState.updateVersion + "!\n
 			\n
-			Thank you for using the Engine!",
+			Thank you for using Dylan Engine version " + MainMenuState.dEngineVersion + ",\n
+			Probably should get a new version btw",
 			32);
 		warnText.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
 		warnText.screenCenter(Y);

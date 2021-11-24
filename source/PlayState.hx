@@ -300,9 +300,6 @@ class PlayState extends MusicBeatState
 		persistentUpdate = true;
 		persistentDraw = true;
 
-		if (SONG == null)
-			SONG = Song.loadFromJson('tutorial');
-
 		Conductor.mapBPMChanges(SONG);
 		Conductor.changeBPM(SONG.bpm);
 
@@ -399,7 +396,9 @@ class PlayState extends MusicBeatState
 				}
 
 			case 'applecore': //Week 2
-				defaultCamZoom = 0.9;
+
+				for (i in 0...10) {
+ 				defaultCamZoom = 0.9;
 				var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('dylan/hi'));
 				bg.active = true;
 	
@@ -430,6 +429,8 @@ class PlayState extends MusicBeatState
 				{
 					UsingNewCam = true;
 				}
+				}
+
 			case 'applecore2': //Week 3
 				defaultCamZoom = 0.85;
 				var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('dylan/poop'));
@@ -495,17 +496,17 @@ class PlayState extends MusicBeatState
 						bg.loadGraphic(Paths.image('dylan/yeah'));
 						curStage = 'applecore-part-3';
 				}
-				
-				sprites.add(bg);
-				add(bg);
-				// below code assumes shaders are always enabled which is bad
-				// i wouldnt consider this an eyesore though
 				var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
 				testshader.waveAmplitude = 0.1;
 				testshader.waveFrequency = 5;
 				testshader.waveSpeed = 2;
 				bg.shader = testshader.shader;
 				curbg = bg;
+				sprites.add(bg);
+				add(bg);
+				// below code assumes shaders are always enabled which is bad
+				// i wouldnt consider this an eyesore though
+
 				if (SONG.song.toLowerCase() == 'applecore-part-2')
 				{
 					UsingNewCam = true;
@@ -2046,8 +2047,6 @@ class PlayState extends MusicBeatState
 
 				if (!daNote.mustPress && daNote.wasGoodHit && !daNote.hitByOpponent && !daNote.ignoreNote)
 				{
-					if (Paths.formatToSongPath(SONG.song) != 'tutorial')
-						camZooming = true;
 
 					if(daNote.noteType == 'Hey!' && dad.animOffsets.exists('hey')) {
 						dad.playAnim('hey', true);
@@ -2307,7 +2306,7 @@ class PlayState extends MusicBeatState
 				if(Math.isNaN(time) || time <= 0) time = 0.6;
 
 				if(value != 0) {
-					if(dad.curCharacter.startsWith('gf')) { //Tutorial GF is actually Dad! The GF is an imposter!! ding ding ding ding ding ding ding, dindinding, end my suffering
+					if(dad.curCharacter.startsWith('gf')) {
 						dad.playAnim('cheer', true);
 						dad.specialAnim = true;
 						dad.heyTimer = time;
@@ -2662,13 +2661,6 @@ class PlayState extends MusicBeatState
 			camFollow.x -= boyfriend.cameraPosition[0];
 			camFollow.y += boyfriend.cameraPosition[1];
 
-			if (Paths.formatToSongPath(SONG.song) == 'tutorial' && cameraTwn == null && FlxG.camera.zoom != 1) {
-				cameraTwn = FlxTween.tween(FlxG.camera, {zoom: 1}, (Conductor.stepCrochet * 4 / 1000), {ease: FlxEase.elasticInOut, onComplete:
-					function (twn:FlxTween) {
-						cameraTwn = null;
-					}
-				});
-			}
 		}
 		
 		
@@ -2684,13 +2676,7 @@ class PlayState extends MusicBeatState
 	}
 
 	function tweenCamIn() {
-		if (Paths.formatToSongPath(SONG.song) == 'tutorial' && cameraTwn == null && FlxG.camera.zoom != 1.3) {
-			cameraTwn = FlxTween.tween(FlxG.camera, {zoom: 1.3}, (Conductor.stepCrochet * 4 / 1000), {ease: FlxEase.elasticInOut, onComplete:
-				function (twn:FlxTween) {
-					cameraTwn = null;
-				}
-			});
-		}
+
 	}
 
 	function snapCamFollowToPos(x:Float, y:Float) {
@@ -3629,7 +3615,7 @@ class PlayState extends MusicBeatState
 			var olddx = dad.x; 
 			var olddy = dad.y;
 			FlxG.camera.flash(FlxColor.WHITE, 5);
-			defaultCamZoom = 0.35;
+			defaultCamZoom = 0.6;
 			remove(boyfriend);
 			boyfriend = new Boyfriend(oldbx, oldby, 'bf');
 			add(boyfriend);
@@ -3640,25 +3626,40 @@ class PlayState extends MusicBeatState
 		}
 
 		if (curStep == 900 && curSong.toLowerCase() == 'applecore'){
-			daBackground.switchbg(false);
-			curStage = 'applecore2';
 			var oldbx = boyfriend.x;
 			var oldby = boyfriend.y;
-			var olddx = dad.x; 
-			var olddy = dad.y;
 			FlxG.camera.flash(FlxColor.WHITE, 5);
-			defaultCamZoom = 0.35;
+
 			remove(boyfriend);
 			boyfriend = new Boyfriend(oldbx, oldby, 'bf');
 			add(boyfriend);
 
+			remove(gf);
+			gf = new Character(400, 40, 'banduP2');
+			add(gf);
+
 			remove(dad);
-			dad = new Character(olddx, olddy, 'pissedfarmer');
+			dad = new Character(120, 80, 'pissedfarmer');
 			add(dad);
 
-			remove(gf);
-			gf = new Character(olddx, olddy, 'banduP2');
-			add(gf);
+			remove(daBackground);
+			var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('dylan/poop'));
+			bg.active = true;
+			defaultCamZoom = 0.8;
+			var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
+			testshader.waveAmplitude = 0.1;
+			testshader.waveFrequency = 5;
+			testshader.waveSpeed = 2;
+			bg.shader = testshader.shader;
+			curbg = bg;
+			add(bg);
+			// below code assumes shaders are always enabled which is bad
+			// i wouldnt consider this an eyesore though
+
+			if (SONG.song.toLowerCase() == 'applecore-part-2')
+			{
+				UsingNewCam = true;
+			}
 		}
 
 		lastStepHit = curStep;
