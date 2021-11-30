@@ -34,7 +34,7 @@ class CreditsState extends MusicBeatState
 	{
 		#if desktop
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Menus", null);
+		DiscordClient.changePresence("Visiting the credits section!", null);
 		#end
 
 		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
@@ -44,41 +44,27 @@ class CreditsState extends MusicBeatState
 		add(grpOptions);
 
 		#if MODS_ALLOWED
-		trace("finding mod shit");
-		if (FileSystem.exists(Paths.mods())) {
-			trace("mods folder");
-			if (FileSystem.exists(Paths.modFolders("data/credits.txt"))){
-				trace("credit file");
-				var firstarray:Array<String> = CoolUtil.coolTextFile(Paths.modFolders("data/credits.txt"));
-				trace("found credit shit");
-				
-				for(i in firstarray){
-					var arr:Array<String> = i.split("::");
-					trace(arr);
-					creditsStuff.push(arr);
-				}
-			}
-		}
 		
 		#end
 		var pisspoop = [ //Name - Icon name - Description - Link - BG Color
-		['Psych Engine Team'],
-		['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',					'https://twitter.com/Shadow_Mario_',	'0xFFFFDD33'],
-		['RiverOaken',			'riveroaken',		'Main Artist/Animator of Psych Engine',				'https://twitter.com/river_oaken',		'0xFFC30085'],
+		['DylanEngine Team'],
+		['DylanK',			'dylan',		'Main Scripter for this mod and dylan engine!',				'https://twitter.com/booktheone1',		'0xFFC30085'],
+		['The Vs Cheeky Team',			'cheek',		'Parts of the mod were made using the source code',				'https://twitter.com/WizardSalami',		'0xFFC30085'],
+		['The Vs Dave Team',			'davis',		'Parts of the mod were made using the source code',				'https://twitter.com/vsdaveandbambi',		'0xFFC30085'],
 		[''],
-		['Engine Contributors'],
-		['shubs',				'shubs',			'New Input System Programmer',						'https://twitter.com/yoshubs',			'0xFF4494E6'],
-		['PolybiusProxy',		'polybiusproxy',	'.MP4 Video Loader Extension',						'https://twitter.com/polybiusproxy',	'0xFFE01F32'],
-		['gedehari',			'gedehari',			'Chart Editor\'s Sound Waveform base',				'https://twitter.com/gedehari',			'0xFFFF9300'],
-		['Keoiki',				'keoiki',			'Note Splash Animations',							'https://twitter.com/Keoiki_',			'0xFFFFFFFF'],
-		['SandPlanet',			'sandplanet',		'Mascot\'s Owner\nMain Supporter of the Engine',		'https://twitter.com/SandPlanetNG',	'0xFFD10616'],
-		['bubba',				'bubba',		'Guest Composer for "Hot Dilf"',	'https://www.youtube.com/channel/UCxQTnLmv0OAS63yzk9pVfaw',	'0xFF61536A'],
+		['DylanEngine Socials'],
+		['YouTube',			'yt',		'Youtube channel innit',				'https://www.youtube.com/channel/UCaeFwSBZNSo-fsGKfCL651Q',		'0xFFC30085'],
+		['Twitter',			'tweet',		'Twitter thing innit',				'https://twitter.com/booktheone1',		'0xFFC30085'],
+		['SoundCloud',			'soundmeuwu',		'Soundcloud page for music',				'https://soundcloud.com/user-641729707',		'0xFFC30085'],
+		['Discord',			'discord',		'TeamBamdu Discord server [Home of DylanEngine]',				'https://discord.gg/J9uzk2vpXq',		'0xFFC30085'],
 		[''],
-		["Funkin' Crew"],
+		["Funkin' Crew And Psych Engine Team"],
 		['ninjamuffin99',		'ninjamuffin99',	"Programmer of Friday Night Funkin'",				'https://twitter.com/ninja_muffin99',	'0xFFF73838'],
 		['PhantomArcade',		'phantomarcade',	"Animator of Friday Night Funkin'",					'https://twitter.com/PhantomArcade3K',	'0xFFFFBB1B'],
 		['evilsk8r',			'evilsk8r',			"Artist of Friday Night Funkin'",					'https://twitter.com/evilsk8r',			'0xFF53E52C'],
-		['kawaisprite',			'kawaisprite',		"Composer of Friday Night Funkin'",					'https://twitter.com/kawaisprite',		'0xFF6475F3']
+		['kawaisprite',			'kawaisprite',		"Composer of Friday Night Funkin'",					'https://twitter.com/kawaisprite',		'0xFF6475F3'],
+		['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',					'https://twitter.com/Shadow_Mario_',	'0xFFFFDD33'],
+		['RiverOaken',			'riveroaken',		'Main Artist/Animator of Psych Engine',				'https://twitter.com/river_oaken',		'0xFFC30085'],
 	];
 		
 		

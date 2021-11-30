@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="bonus.png">
+	<!-- Created with Adobe Animate version 21.0.9.42677 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Body0000" x="0" y="0" width="329" height="276"/>
+	<SubTexture name="Down0000" x="329" y="0" width="376" height="294"/>
+	<SubTexture name="Down0001" x="705" y="0" width="376" height="294"/>
+	<SubTexture name="Down0002" x="1081" y="0" width="376" height="294"/>
+	<SubTexture name="Idle0000" x="1457" y="0" width="329" height="355"/>
+	<SubTexture name="Idle0001" x="1457" y="0" width="329" height="355"/>
+	<SubTexture name="Idle0002" x="1457" y="0" width="329" height="355"/>
+	<SubTexture name="Left0000" x="0" y="355" width="337" height="352"/>
+	<SubTexture name="Left0001" x="337" y="355" width="337" height="352"/>
+	<SubTexture name="Left0002" x="674" y="355" width="337" height="352"/>
+	<SubTexture name="Right0000" x="1011" y="355" width="362" height="391"/>
+	<SubTexture name="Right0001" x="1011" y="355" width="362" height="391"/>
+	<SubTexture name="Right0002" x="1011" y="355" width="362" height="391"/>
+	<SubTexture name="Up0000" x="1373" y="355" width="323" height="406"/>
+	<SubTexture name="Up0001" x="1696" y="355" width="323" height="406"/>
+	<SubTexture name="Up0002" x="0" y="761" width="323" height="406"/>
+</TextureAtlas>

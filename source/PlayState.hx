@@ -3608,30 +3608,54 @@ class PlayState extends MusicBeatState
 		}
 
 		if (curStep == 1475 && curSong.toLowerCase() == 'applecore-part-2'){
-			daBackground.switchbg(false);
-			curStage = 'applecore3';
-			var oldbx = boyfriend.x;
-			var oldby = boyfriend.y;
-			var olddx = dad.x; 
-			var olddy = dad.y;
 			FlxG.camera.flash(FlxColor.WHITE, 5);
-			defaultCamZoom = 0.6;
+			remove(daBackground);
+			var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('dylan/yeah'));
+			bg.active = true;
+			defaultCamZoom = 0.7;
+			var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
+			testshader.waveAmplitude = 0.1;
+			testshader.waveFrequency = 5;
+			testshader.waveSpeed = 2;
+			bg.shader = testshader.shader;
+			curbg = bg;
+			add(bg);
+			if (SONG.song.toLowerCase() == 'applecore-part-2')
+				{
+					UsingNewCam = true;
+				}
 			remove(boyfriend);
-			boyfriend = new Boyfriend(oldbx, oldby, 'bf');
+			boyfriend = new Boyfriend(870, 320, 'bf');
 			add(boyfriend);
 
+			remove(gf);
+			gf = new Character(5000, 5000, 'banduP2');
+			add(gf);
+
 			remove(dad);
-			dad = new Character(olddx, olddy, 'unfair');
+			dad = new Character(0, 50, 'unfair');
 			add(dad);
 		}
 
 		if (curStep == 900 && curSong.toLowerCase() == 'applecore'){
-			var oldbx = boyfriend.x;
-			var oldby = boyfriend.y;
 			FlxG.camera.flash(FlxColor.WHITE, 5);
-
+			remove(daBackground);
+			var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('dylan/poop'));
+			bg.active = true;
+			defaultCamZoom = 0.7;
+			var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
+			testshader.waveAmplitude = 0.1;
+			testshader.waveFrequency = 5;
+			testshader.waveSpeed = 2;
+			bg.shader = testshader.shader;
+			curbg = bg;
+			add(bg);
+			if (SONG.song.toLowerCase() == 'applecore')
+				{
+					UsingNewCam = true;
+				}
 			remove(boyfriend);
-			boyfriend = new Boyfriend(oldbx, oldby, 'bf');
+			boyfriend = new Boyfriend(970, 40, 'bf');
 			add(boyfriend);
 
 			remove(gf);
@@ -3641,25 +3665,6 @@ class PlayState extends MusicBeatState
 			remove(dad);
 			dad = new Character(120, 80, 'pissedfarmer');
 			add(dad);
-
-			remove(daBackground);
-			var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('dylan/poop'));
-			bg.active = true;
-			defaultCamZoom = 0.8;
-			var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
-			testshader.waveAmplitude = 0.1;
-			testshader.waveFrequency = 5;
-			testshader.waveSpeed = 2;
-			bg.shader = testshader.shader;
-			curbg = bg;
-			add(bg);
-			// below code assumes shaders are always enabled which is bad
-			// i wouldnt consider this an eyesore though
-
-			if (SONG.song.toLowerCase() == 'applecore-part-2')
-			{
-				UsingNewCam = true;
-			}
 		}
 
 		lastStepHit = curStep;
