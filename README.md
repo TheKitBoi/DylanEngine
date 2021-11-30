@@ -23,3 +23,7 @@ Update: To do edits for some audios please run `haxelib install random` becuase 
 
 WARNING: Story mode broke :|
 _____________________________________
+
+## Game Page
+
+[![]("https://gamebanana.com/mods/embeddables/339889?type=large")](https://gamebanana.com/mods/339889)
