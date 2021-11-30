@@ -27,7 +27,7 @@ import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import lime.app.Application;
 import openfl.Assets;
-
+using Random;
 using StringTools;
 
 class TitleState extends MusicBeatState
@@ -35,9 +35,12 @@ class TitleState extends MusicBeatState
 	public static var muteKeys:Array<FlxKey> = [FlxKey.ZERO];
 	public static var volumeDownKeys:Array<FlxKey> = [FlxKey.NUMPADMINUS, FlxKey.MINUS];
 	public static var volumeUpKeys:Array<FlxKey> = [FlxKey.NUMPADPLUS, FlxKey.PLUS];
-
+	static function RandNumb()
+	{
+		Random.int(1,2); // 1, 2, or 3
+		Random.float(1,2); // Any float between 0 and 5, inclusive
+	};
 	static var initialized:Bool = false;
-
 	var blackScreen:FlxSprite;
 	var credGroup:FlxGroup;
 	var credTextShit:Alphabet;
@@ -168,12 +171,21 @@ class TitleState extends MusicBeatState
 			// FlxG.sound.list.add(music);
 			// music.play();
 
-			if(FlxG.sound.music == null) {
-				FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
+			if (RandNumb == 1) {
+				if(FlxG.sound.music == null) {
+					FlxG.sound.playMusic(Paths.music('FunkyIntro1'), 0);
 
-				FlxG.sound.music.fadeIn(4, 0, 0.7);
-			}
-		}
+					FlxG.sound.music.fadeIn(4, 0, 0.7);
+				};
+			else if (RandNumb == 2)
+				if(FlxG.sound.music == null) {
+					FlxG.sound.playMusic(Paths.music('FunkyIntro2'), 0);
+
+					FlxG.sound.music.fadeIn(4, 0, 0.7);
+				};
+			};
+		};
+
 
 		Conductor.changeBPM(102);
 		persistentUpdate = true;
@@ -184,26 +196,24 @@ class TitleState extends MusicBeatState
 		// bg.updateHitbox();
 		add(bg);
 
-		logoBl = new FlxSprite(-150, -100);
-		logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
-		logoBl.antialiasing = ClientPrefs.globalAntialiasing;
-		logoBl.animation.addByPrefix('bump', 'logo bumpin', 24);
-		logoBl.animation.play('bump');
-		logoBl.updateHitbox();
-		// logoBl.screenCenter();
+		//logoBl = new FlxSprite(-150, -100);
+		//logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
+		//logoBl.antialiasing = ClientPrefs.globalAntialiasing;
+		//logoBl.animation.addByPrefix('bump', 'logo bumpin', 24);
+		//logoBl.animation.play('bump');
+		//logoBl.updateHitbox();
+		//logoBl.screenCenter();
 		// logoBl.color = FlxColor.BLACK;
 
 		swagShader = new ColorSwap();
-		if(!FlxG.save.data.psykaEasterEgg) {
-			gfDance = new FlxSprite(FlxG.width * 0.4, FlxG.height * 0.07);
-			gfDance.frames = Paths.getSparrowAtlas('gfDanceTitle');
-			gfDance.animation.addByIndices('danceLeft', 'gfDance', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
-			gfDance.animation.addByIndices('danceRight', 'gfDance', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
-		}
-		gfDance.antialiasing = ClientPrefs.globalAntialiasing;
-		add(gfDance);
-		gfDance.shader = swagShader.shader;
-		add(logoBl);
+	//	gfDance = new FlxSprite(FlxG.width * 0.4, FlxG.height * 0.07);
+	//	gfDance.frames = Paths.getSparrowAtlas('gfDanceTitle');
+	//	gfDance.animation.addByIndices('danceLeft', 'gfDance', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
+	//	gfDance.animation.addByIndices('danceRight', 'gfDance', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+	//	gfDance.antialiasing = ClientPrefs.globalAntialiasing;
+	//	add(gfDance);
+	//	gfDance.shader = swagShader.shader;
+		//add(logoBl);
 		//logoBl.shader = swagShader.shader;
 
 		titleText = new FlxSprite(100, FlxG.height * 0.8);
@@ -219,10 +229,10 @@ class TitleState extends MusicBeatState
 		var logo:FlxSprite = new FlxSprite().loadGraphic(Paths.image('logo'));
 		logo.screenCenter();
 		logo.antialiasing = ClientPrefs.globalAntialiasing;
-		// add(logo);
+		add(logo);
 
-		// FlxTween.tween(logoBl, {y: logoBl.y + 50}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG});
-		// FlxTween.tween(logo, {y: logoBl.y + 50}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG, startDelay: 0.1});
+		//FlxTween.tween(logoBl, {y: logoBl.y + 50}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG});
+		FlxTween.tween(logo, {y: logoBl.y + 50}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG, startDelay: 0.1});
 
 		credGroup = new FlxGroup();
 		add(credGroup);

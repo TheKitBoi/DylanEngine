@@ -98,7 +98,7 @@
 	<haxelib name="flixel" />
 	<haxelib name="actuate" />
 	<haxelib name="extension-webm" if="desktop" />
-
+	<haxelib name="random" />
 	<haxedev set='webgl' />
 
 	<!--In case you want to use the addons package-->
