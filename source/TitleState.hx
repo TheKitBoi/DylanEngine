@@ -35,7 +35,7 @@ class TitleState extends MusicBeatState
 	public static var muteKeys:Array<FlxKey> = [FlxKey.ZERO];
 	public static var volumeDownKeys:Array<FlxKey> = [FlxKey.NUMPADMINUS, FlxKey.MINUS];
 	public static var volumeUpKeys:Array<FlxKey> = [FlxKey.NUMPADPLUS, FlxKey.PLUS];
-	static function RandNumb()
+	static function RandNumb():Void
 	{
 		Random.int(1,2);
 		Random.float(1,2);
@@ -171,21 +171,29 @@ class TitleState extends MusicBeatState
 			// FlxG.sound.list.add(music);
 			// music.play();
 
-			if (RandNumb == 1) 
+		/*	if (RandNumb() == 1) 
 			{
 				if(FlxG.sound.music == null) {
 					FlxG.sound.playMusic(Paths.music('FunkyIntro1'), 0);
 
 					FlxG.sound.music.fadeIn(4, 0, 0.7);
 				};
-			else if (RandNumb == 2)
+			else if (RandNumb() == 2)
 				if(FlxG.sound.music == null) {
 					FlxG.sound.playMusic(Paths.music('FunkyIntro2'), 0);
 
 					FlxG.sound.music.fadeIn(4, 0, 0.7);
 				};
+			}; */
+
+			if(FlxG.sound.music == null) {
+				FlxG.sound.playMusic(Paths.music('FunkyIntro2'), 0);
+
+				FlxG.sound.music.fadeIn(4, 0, 0.7);
 			};
-		};
+		}; 
+
+
 
 
 		Conductor.changeBPM(102);
