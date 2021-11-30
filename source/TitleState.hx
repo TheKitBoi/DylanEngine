@@ -37,8 +37,8 @@ class TitleState extends MusicBeatState
 	public static var volumeUpKeys:Array<FlxKey> = [FlxKey.NUMPADPLUS, FlxKey.PLUS];
 	static function RandNumb()
 	{
-		Random.int(1,2); // 1, 2, or 3
-		Random.float(1,2); // Any float between 0 and 5, inclusive
+		Random.int(1,2);
+		Random.float(1,2);
 	};
 	static var initialized:Bool = false;
 	var blackScreen:FlxSprite;
@@ -171,7 +171,8 @@ class TitleState extends MusicBeatState
 			// FlxG.sound.list.add(music);
 			// music.play();
 
-			if (RandNumb == 1) {
+			if (RandNumb == 1) 
+			{
 				if(FlxG.sound.music == null) {
 					FlxG.sound.playMusic(Paths.music('FunkyIntro1'), 0);
 
