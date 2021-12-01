@@ -42,6 +42,8 @@ import lime.utils.Assets;
 import openfl.display.BlendMode;
 import openfl.display.StageQuality;
 import openfl.filters.ShaderFilter;
+import openfl.net.FileFilter;
+import openfl.filters.BitmapFilter;
 import openfl.utils.Assets as OpenFlAssets;
 import editors.ChartingState;
 import editors.CharacterEditorState;
@@ -52,7 +54,7 @@ import FunkinLua;
 import DialogueBoxPsych;
 import openfl.display.BlendMode;
 import openfl.display.StageQuality;
-
+import openfl.filters.ShaderFilter;
 import openfl.filters.BitmapFilter;
 import openfl.filters.BlurFilter;
 import openfl.filters.ColorMatrixFilter;
@@ -151,6 +153,7 @@ class PlayState extends MusicBeatState
 	private var camFollow:FlxPoint;
 	private var camFollowPos:FlxObject;
 	public var UsingNewCam:Bool = false;
+	var focusOnDadGlobal:Bool = true;
 	private static var prevCamFollow:FlxPoint;
 	private static var prevCamFollowPos:FlxObject;
 	private static var resetSpriteCache:Bool = false;
@@ -2047,7 +2050,11 @@ class PlayState extends MusicBeatState
 
 				if (!daNote.mustPress && daNote.wasGoodHit && !daNote.hitByOpponent && !daNote.ignoreNote)
 				{
-
+					if (UsingNewCam)
+						{
+							focusOnDadGlobal = true;
+							ZoomCam(true);
+						}
 					if(daNote.noteType == 'Hey!' && dad.animOffsets.exists('hey')) {
 						dad.playAnim('hey', true);
 						dad.specialAnim = true;
@@ -2263,6 +2270,51 @@ class PlayState extends MusicBeatState
 		}
 		return false;
 	}
+
+	function ZoomCam(focusondad:Bool):Void
+		{
+			var bfplaying:Bool = false;
+			if (focusondad)
+			{
+				notes.forEachAlive(function(daNote:Note)
+				{
+					if (!bfplaying)
+					{
+						if (daNote.mustPress)
+						{
+							bfplaying = true;
+						}
+					}
+				});
+				if (UsingNewCam && bfplaying)
+				{
+					return;
+				}
+			}
+			if (focusondad)
+			{
+				//camFollow.setPosition(dad.getMidpoint().x + 150, dad.getMidpoint().y - 100);
+				// camFollow.setPosition(lucky.getMidpoint().x - 120, lucky.getMidpoint().y + 210);
+	
+				switch (dad.curCharacter)
+				{
+					case 'bandu' | 'banduP2' | 'pissedfarmer':
+						camFollow.y = dad.getMidpoint().y;
+				}
+	
+			}
+	
+			if (!focusondad)
+			{
+				//camFollow.setPosition(boyfriend.getMidpoint().x - 100, boyfriend.getMidpoint().y - 100);
+	
+				switch(boyfriend.curCharacter)
+				{
+					case 'bandu' | 'banduP2' | 'pissedfarmer':
+						camFollow.y = boyfriend.getMidpoint().y;
+				}
+			}
+		}
 
 	public function checkEventNote() {
 		while(eventNotes.length > 0) {
@@ -3680,6 +3732,55 @@ class PlayState extends MusicBeatState
 	override function beatHit()
 	{
 		super.beatHit();
+
+		if (!UsingNewCam)
+			{
+				if (generatedMusic && PlayState.SONG.notes[Std.int(curStep / 16)] != null)
+				{
+					if (curBeat % 4 == 0)
+					{
+						// trace(PlayState.SONG.notes[Std.int(curStep / 16)].mustHitSection);
+					}
+	
+					if (!PlayState.SONG.notes[Std.int(curStep / 16)].mustHitSection)
+					{
+						focusOnDadGlobal = true;
+						ZoomCam(true);
+					}
+	
+					if (PlayState.SONG.notes[Std.int(curStep / 16)].mustHitSection)
+					{
+						focusOnDadGlobal = false;
+						ZoomCam(false);
+					}
+				}
+			}
+			if (generatedMusic)
+			{
+				notes.sort(FlxSort.byY, FlxSort.DESCENDING);
+			}
+	
+			if (SONG.notes[Math.floor(curStep / 16)] != null)
+			{
+				if (SONG.notes[Math.floor(curStep / 16)].changeBPM)
+				{
+					Conductor.changeBPM(SONG.notes[Math.floor(curStep / 16)].bpm);
+					FlxG.log.add('CHANGED BPM!');
+				}
+				// else
+				// Conductor.changeBPM(SONG.bpm);
+			}
+	
+			// FlxG.log.add('change bpm' + SONG.notes[Std.int(curStep / 16)].changeBPM);
+			wiggleShit.update(Conductor.crochet);
+	
+			if (camZooming && FlxG.camera.zoom < 1.35 && curBeat % 4 == 0)
+			{
+				FlxG.camera.zoom += 0.015;
+				camHUD.zoom += 0.03;
+			}
+
+	
 
 		if(lastBeatHit >= curBeat) {
 			trace('BEAT HIT: ' + curBeat + ', LAST HIT: ' + lastBeatHit);

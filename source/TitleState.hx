@@ -205,14 +205,14 @@ class TitleState extends MusicBeatState
 		// bg.updateHitbox();
 		add(bg);
 
-		//logoBl = new FlxSprite(-150, -100);
-		//logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
-		//logoBl.antialiasing = ClientPrefs.globalAntialiasing;
-		//logoBl.animation.addByPrefix('bump', 'logo bumpin', 24);
-		//logoBl.animation.play('bump');
-		//logoBl.updateHitbox();
-		//logoBl.screenCenter();
-		// logoBl.color = FlxColor.BLACK;
+		logoBl = new FlxSprite(-150, -100);
+		logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
+		logoBl.antialiasing = ClientPrefs.globalAntialiasing;
+		logoBl.animation.addByPrefix('bump', 'logo bumpin', 24);
+		logoBl.animation.play('bump');
+		logoBl.updateHitbox();
+		logoBl.screenCenter();
+		//logoBl.color = FlxColor.BLACK;
 
 		swagShader = new ColorSwap();
 	//	gfDance = new FlxSprite(FlxG.width * 0.4, FlxG.height * 0.07);
@@ -222,8 +222,8 @@ class TitleState extends MusicBeatState
 	//	gfDance.antialiasing = ClientPrefs.globalAntialiasing;
 	//	add(gfDance);
 	//	gfDance.shader = swagShader.shader;
-		//add(logoBl);
-		//logoBl.shader = swagShader.shader;
+		add(logoBl);
+		logoBl.shader = swagShader.shader;
 
 		titleText = new FlxSprite(100, FlxG.height * 0.8);
 		titleText.frames = Paths.getSparrowAtlas('titleEnter');
@@ -236,12 +236,12 @@ class TitleState extends MusicBeatState
 		add(titleText);
 
 		var logo:FlxSprite = new FlxSprite().loadGraphic(Paths.image('logo'));
-		logo.screenCenter();
-		logo.antialiasing = ClientPrefs.globalAntialiasing;
-		add(logo);
+	//	logo.screenCenter();
+		//logo.antialiasing = ClientPrefs.globalAntialiasing;
+		//add(logo);
 
 		//FlxTween.tween(logoBl, {y: logoBl.y + 50}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG});
-		FlxTween.tween(logo, {y: logoBl.y + 50}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG, startDelay: 0.1});
+		//FlxTween.tween(logo, {y: logoBl.y + 50}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG, startDelay: 0.1});
 
 		credGroup = new FlxGroup();
 		add(credGroup);

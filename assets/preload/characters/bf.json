@@ -133,6 +133,17 @@
 			"indices": []
 		},
 		{
+			"loop": true,
+			"offsets": [
+				-4,
+				0
+			],
+			"anim": "idle-alt",
+			"fps": 24,
+			"name": "BF idle shaking",
+			"indices": []
+		},
+		{
 			"loop": false,
 			"offsets": [
 				37,
