@@ -564,6 +564,11 @@ class PlayState extends MusicBeatState
 			}
 		}
 		
+		screenshader.waveAmplitude = 1;
+		screenshader.waveFrequency = 2;
+		screenshader.waveSpeed = 1;
+		screenshader.shader.uTime.value[0] = new flixel.math.FlxRandom().float(-100000, 100000);
+
 		if(doPush) 
 			luaArray.push(new FunkinLua(luaFile));
 

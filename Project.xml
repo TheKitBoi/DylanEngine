@@ -87,12 +87,8 @@
 	<haxelib name="extension-webm" if="desktop" />
 	<haxelib name="random" />
 	<haxedev set='webgl' />
-
-	<!--In case you want to use the addons package-->
 	<haxelib name="flixel-addons" />
 	<haxelib name="hscript" />
-
-	<!--In case you want to use the ui package-->
 	<haxelib name="flixel-ui" />
 	<haxelib name="linc_luajit" if="LUA_ALLOWED"/>
 	<haxelib name="faxe" if='switch'/>

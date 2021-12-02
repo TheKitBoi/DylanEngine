@@ -26,4 +26,5 @@ _____________________________________
 
 ## Game Page
 
-[![]("https://gamebanana.com/mods/embeddables/339889?type=large")](https://gamebanana.com/mods/339889)
+https://gamebanana.com/mods/339889
+Main page, Might change in the future ig
