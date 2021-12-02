@@ -2,7 +2,7 @@
 <project>
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="FNF: Vs Bambi | AppleCore" file="DylanEngine" packageName="com.shadowmario.psychengine" package="com.shadowmario.psychengine" main="Main" version="1.1.2" company="DylanKSolutionsLTD" />
+	<app title="FNF: Vs Bambi | AppleCore" file="DylanEngine" packageName="com.ninjaninja140.dylanengine" package="com.ninjaninja140.dylanengine" main="Main" version="1.1.2" company="DylanKSolutionsLTD" />
 
 	<!--Switch Export with Unique ApplicationID and Icon-->
 	<set name="APP_ID" value="0x0100f6c013bbc000" />
