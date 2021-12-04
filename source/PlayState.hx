@@ -3651,12 +3651,12 @@ class PlayState extends MusicBeatState
 			add(dad);
 
 			FlxG.camera.zoom += 0.015;
-			camHUD.zoom += 90000000000000000000;
+			camHUD.zoom += 90000;
 		}
 
 		if (curStep == 2549 && curSong.toLowerCase() == 'applecore'){
 			FlxG.camera.zoom -= 0.015;
-			camHUD.zoom -= 90000000000000000000;
+			camHUD.zoom -= 90000;
 			FlxG.camera.flash(FlxColor.BLACK, 5);
 			remove(daBackground);
 			var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('dylan/yeah'));
