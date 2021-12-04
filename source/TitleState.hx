@@ -49,7 +49,7 @@ class TitleState extends MusicBeatState
 	var wackyImage:FlxSprite;
 	var lastKeysPressed:Array<FlxKey> = [];
 
-	var mustUpdate:Bool = true;
+	var mustUpdate:Bool = false;
 	public static var updateVersion:String = '1.1.2';
 
 	override public function create():Void

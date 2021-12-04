@@ -1,6 +1,15 @@
 {
 	"songs": [
 		[
+			"logestic",
+			"menu_bamb",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
 			"applecore",
 			"menu_bamb",
 			[
@@ -29,7 +38,7 @@
 		]
 	],
 	"hideFreeplay": false,
-	"weekBackground": "stage",
+	"weekBackground": "",
 	"weekCharacters": [
 		"menu_bamb",
 		"bf",
@@ -43,6 +52,6 @@
 		253
 	],
 	"hideStoryMode": false,
-	"weekBefore": "tutorial",
+	"weekBefore": "dylank",
 	"startUnlocked": true
 }

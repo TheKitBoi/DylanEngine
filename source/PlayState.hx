@@ -214,6 +214,7 @@ class PlayState extends MusicBeatState
 
 	var limoKillingState:Int = 0;
 	var limo:BGSprite;
+	var GFbackground:FlxSprite;
 	var limoMetalPole:BGSprite;
 	var limoLight:BGSprite;
 	var limoCorpse:BGSprite;
@@ -332,9 +333,9 @@ class PlayState extends MusicBeatState
 			{
 				case 'applecore':
 					curStage = 'applecore';
-				case 'applecore-part-2' | 'mealie':
+				case 'mealie':
 					curStage = 'applecore2';
-				case 'applecore-part-3' | 'polygonized' | 'cheating':
+				case 'cheating':
 					curStage = 'applecore3';
 				default:
 					curStage = 'stage';
@@ -410,12 +411,6 @@ class PlayState extends MusicBeatState
 					case 'applecore':
 						bg.loadGraphic(Paths.image('dylan/hi'));
 						curStage = 'applecore';
-					case 'applecore-part-2':
-						bg.loadGraphic(Paths.image('dylan/poop'));
-						curStage = 'applecore-part-2';
-					case 'applecore-part-3':
-						bg.loadGraphic(Paths.image('dylan/yeah'));
-						curStage = 'applecore-part-3';
 				}
 				
 				sprites.add(bg);
@@ -438,18 +433,17 @@ class PlayState extends MusicBeatState
 				defaultCamZoom = 0.85;
 				var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('dylan/poop'));
 				bg.active = true;
-	
+		//	gfDance = new FlxSprite(FlxG.width * 0.4, FlxG.height * 0.07);
+	//	gfDance.frames = Paths.getSparrowAtlas('gfDanceTitle');
+	//	gfDance.animation.addByIndices('danceLeft', 'gfDance', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
+	//	gfDance.animation.addByIndices('danceRight', 'gfDance', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+	//	gfDance.antialiasing = ClientPrefs.globalAntialiasing;
+	//	add(gfDance);
 				switch (bgName.toLowerCase())
 				{
 					case 'applecore':
 						bg.loadGraphic(Paths.image('dylan/hi'));
 						curStage = 'applecore';
-					case 'applecore-part-2':
-						bg.loadGraphic(Paths.image('dylan/poop'));
-						curStage = 'applecore-part-2';
-					case 'applecore-part-3':
-						bg.loadGraphic(Paths.image('dylan/yeah'));
-						curStage = 'applecore-part-3';
 				}
 				
 				sprites.add(bg);
@@ -462,7 +456,7 @@ class PlayState extends MusicBeatState
 				testshader.waveSpeed = 2;
 				bg.shader = testshader.shader;
 				curbg = bg;
-				if (SONG.song.toLowerCase() == 'applecore-part-2')
+				if (SONG.song.toLowerCase() == 'applecore')
 				{
 					UsingNewCam = true;
 				}
@@ -492,12 +486,6 @@ class PlayState extends MusicBeatState
 					case 'applecore':
 						bg.loadGraphic(Paths.image('dylan/hi'));
 						curStage = 'applecore';
-					case 'applecore-part-2':
-						bg.loadGraphic(Paths.image('dylan/poop'));
-						curStage = 'applecore-part-2';
-					case 'applecore-part-3':
-						bg.loadGraphic(Paths.image('dylan/yeah'));
-						curStage = 'applecore-part-3';
 				}
 				var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
 				testshader.waveAmplitude = 0.1;
@@ -510,7 +498,7 @@ class PlayState extends MusicBeatState
 				// below code assumes shaders are always enabled which is bad
 				// i wouldnt consider this an eyesore though
 
-				if (SONG.song.toLowerCase() == 'applecore-part-2')
+				if (SONG.song.toLowerCase() == 'applecore')
 				{
 					UsingNewCam = true;
 				}
@@ -1573,12 +1561,6 @@ class PlayState extends MusicBeatState
 			{
 				opponentStrums.add(babyArrow);
 			}
-
-			if(SONG.song.toLowerCase() != 'applecore-part-3')
-				{
-					babyArrow.y -= 115;
-					FlxTween.tween(babyArrow, {y: babyArrow.y + 115}, 1, {ease: FlxEase.backInOut});
-				}
 			FlxTween.tween(babyArrow, {alpha: 0.65}, 1, {ease: FlxEase.cubeInOut});
 
 			strumLineNotes.add(babyArrow);
@@ -1752,13 +1734,6 @@ class PlayState extends MusicBeatState
 			}
 		}
 		
-		if (SONG.song.toLowerCase()=='applecore-part-3')
-			{
-			
-			if (gf.animation.curAnim.name.startsWith('sing')) health -= 0.00005;
-			if (dad.animation.curAnim.name.startsWith('sing')) health -= 0.00005;
-			
-			}
 
 		if (SONG.song.toLowerCase()=='applecore')
 			{
@@ -1767,14 +1742,7 @@ class PlayState extends MusicBeatState
 			if (dad.animation.curAnim.name.startsWith('sing')) health -= 0.00005;
 			
 			}	
-		
-		if (SONG.song.toLowerCase()=='applecore-part-2')
-			{
-			
-			if (gf.animation.curAnim.name.startsWith('sing')) health -= 0.00005;
-			if (dad.animation.curAnim.name.startsWith('sing')) health -= 0.00005;
-			
-			}
+
 			
 		if (SONG.song.toLowerCase()=='mealie')
 			{
@@ -2115,26 +2083,11 @@ class PlayState extends MusicBeatState
 						daNote.kill();
 						notes.remove(daNote, true);
 						daNote.destroy();
-						if (SONG.song.toLowerCase()=='disruption')
-
-							{
-							
-							gf.playAnim('scared');
-							if (dad.animation.curAnim.name.startsWith('sing')) health -= 0.00005;
-							FlxG.camera.shake(0.005);
-							
-							}
 						if (SONG.song.toLowerCase()=='applecore')
 
 							{
 							
 							gf.playAnim('scared');
-							if (dad.animation.curAnim.name.startsWith('sing')) health -= 0.00005;
-							FlxG.camera.shake(0.005);
-							}
-						if (SONG.song.toLowerCase()=='applecore-part-2')
-							{
-							
 							if (gf.animation.curAnim.name.startsWith('sing')) health -= 0.00005;
 							if (dad.animation.curAnim.name.startsWith('sing')) health -= 0.00005;
 							FlxG.camera.shake(0.005);
@@ -3667,38 +3620,9 @@ class PlayState extends MusicBeatState
 			return;
 		}
 
-		if (curStep == 1475 && curSong.toLowerCase() == 'applecore-part-2'){
-			FlxG.camera.flash(FlxColor.WHITE, 5);
-			remove(daBackground);
-			var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('dylan/yeah'));
-			bg.active = true;
-			defaultCamZoom = 0.7;
-			var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
-			testshader.waveAmplitude = 0.1;
-			testshader.waveFrequency = 5;
-			testshader.waveSpeed = 2;
-			bg.shader = testshader.shader;
-			curbg = bg;
-			add(bg);
-			if (SONG.song.toLowerCase() == 'applecore-part-2')
-				{
-					UsingNewCam = true;
-				}
-			remove(boyfriend);
-			boyfriend = new Boyfriend(870, 320, 'bf');
-			add(boyfriend);
-
-			remove(gf);
-			gf = new Character(5000, 5000, 'banduP2');
-			add(gf);
-
-			remove(dad);
-			dad = new Character(0, 50, 'unfair');
-			add(dad);
-		}
 
 		if (curStep == 900 && curSong.toLowerCase() == 'applecore'){
-			FlxG.camera.flash(FlxColor.WHITE, 5);
+			FlxG.camera.flash(FlxColor.BLACK, 5);
 			remove(daBackground);
 			var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('dylan/poop'));
 			bg.active = true;
@@ -3715,7 +3639,7 @@ class PlayState extends MusicBeatState
 					UsingNewCam = true;
 				}
 			remove(boyfriend);
-			boyfriend = new Boyfriend(970, 40, 'bf');
+			boyfriend = new Boyfriend(970, 80, 'bf');
 			add(boyfriend);
 
 			remove(gf);
@@ -3725,6 +3649,31 @@ class PlayState extends MusicBeatState
 			remove(dad);
 			dad = new Character(120, 80, 'pissedfarmer');
 			add(dad);
+		}
+
+		if (curStep == 2549 && curSong.toLowerCase() == 'applecore'){
+			FlxG.camera.flash(FlxColor.BLACK, 5);
+			remove(daBackground);
+			var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('dylan/yeah'));
+			bg.active = true;
+			defaultCamZoom = 0.6;
+			var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
+			testshader.waveAmplitude = 0.1;
+			testshader.waveFrequency = 5;
+			testshader.waveSpeed = 2;
+			bg.shader = testshader.shader;
+			curbg = bg;
+			add(bg);
+			UsingNewCam = true;
+			remove(boyfriend);
+			boyfriend = new Boyfriend(970, 80, 'bf');
+			add(boyfriend);
+			remove(dad);
+			dad = new Character(0, 0, 'unfair');
+			add(dad);
+			remove(gf);
+			gf = new Character(580, 80, 'gf');
+			add(gf);
 		}
 
 		lastStepHit = curStep;
