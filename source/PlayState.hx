@@ -3649,9 +3649,14 @@ class PlayState extends MusicBeatState
 			remove(dad);
 			dad = new Character(120, 80, 'pissedfarmer');
 			add(dad);
+
+			FlxG.camera.zoom += 0.015;
+			camHUD.zoom += 90000000000000000000;
 		}
 
 		if (curStep == 2549 && curSong.toLowerCase() == 'applecore'){
+			FlxG.camera.zoom -= 0.015;
+			camHUD.zoom -= 90000000000000000000;
 			FlxG.camera.flash(FlxColor.BLACK, 5);
 			remove(daBackground);
 			var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('dylan/yeah'));
@@ -3665,12 +3670,15 @@ class PlayState extends MusicBeatState
 			curbg = bg;
 			add(bg);
 			UsingNewCam = true;
+
 			remove(boyfriend);
 			boyfriend = new Boyfriend(970, 80, 'bf');
 			add(boyfriend);
+
 			remove(dad);
 			dad = new Character(0, 0, 'unfair');
 			add(dad);
+
 			remove(gf);
 			gf = new Character(580, 80, 'gf');
 			add(gf);

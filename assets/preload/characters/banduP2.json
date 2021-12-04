@@ -106,7 +106,7 @@
 		-170,
 		0
 	],
-	"healthicon": "bamb",
+	"healthicon": "bandu",
 	"flip_x": false,
 	"healthbar_colors": [
 		0,
@@ -118,5 +118,5 @@
 		140
 	],
 	"sing_duration": 4,
-	"scale": 0.7
+	"scale": 0.75
 }
