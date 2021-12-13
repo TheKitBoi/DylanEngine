@@ -3649,9 +3649,6 @@ class PlayState extends MusicBeatState
 			remove(dad);
 			dad = new Character(120, 80, 'pissedfarmer');
 			add(dad);
-
-			FlxG.camera.zoom += 0.015;
-			camHUD.zoom += 90000;
 		}
 
 		if (curStep == 2549 && curSong.toLowerCase() == 'applecore'){
@@ -3683,6 +3680,14 @@ class PlayState extends MusicBeatState
 			gf = new Character(580, 80, 'gf');
 			add(gf);
 		}
+
+		if (curStep == 2535 && curSong.toLowerCase() == 'applecore'){
+			FlxG.camera.zoom += 0.015;
+			camHUD.zoom += 90000;
+		}
+
+
+
 
 		lastStepHit = curStep;
 		setOnLuas('curStep', curStep);
