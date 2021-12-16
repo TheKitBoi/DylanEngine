@@ -3629,7 +3629,7 @@ class PlayState extends MusicBeatState
 
 		if (curStep == 900 && curSong.toLowerCase() == 'applecore'){
 			FlxG.camera.flash(FlxColor.BLACK, 5);
-			remove(daBackground);
+			remove(background);
 			var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('dylan/poop'));
 			bg.active = true;
 			defaultCamZoom = 0.7;
@@ -3658,7 +3658,7 @@ class PlayState extends MusicBeatState
 			FlxG.camera.zoom -= 0.015;
 			camHUD.zoom -= 90000;
 			FlxG.camera.flash(FlxColor.BLACK, 5);
-			remove(daBackground);
+			remove(background);
 			var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('dylan/yeah'));
 			bg.active = true;
 			defaultCamZoom = 0.6;

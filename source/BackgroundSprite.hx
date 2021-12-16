@@ -105,59 +105,23 @@ class BackgroundSprite extends FlxSpriteGroup
 
 	override function update(elapsed:Float)
 	{
-		if(PlayState.SONG.stage == 'meat'){
-			truck.x -= 2.5; 
-			if (truck.x <= -3500){
-				truck.x = 3500;
-			}
-	 	}
+
 		super.update(elapsed);
 	}
 	
 	public function bop(){
 		switch(PlayState.SONG.stage){
-			case 'mugen': 
-			switch (PlayState.SONG.song.toLowerCase()){
-				case 'toughstone' | 'hard 2 break': 
-					bottomBoppers.animation.play('idle');
-			}
-			case 'kitchen': 
-				bottomBoppers.animation.play('idle');
-				frontDudes.animation.play('idle');
-			case 'house': 
-				fire.animation.play('idle');
+
 		}
 	}
 	public function addFrontLayer(){
 		switch(PlayState.SONG.stage){
-			case 'mugen':
-				if (PlayState.SONG.song.toLowerCase() == 'hard 2 break'){
-			//		add(frontDudes);
-				}
+
 			}
 		}
 	public function switchbg(idk:Bool){
 		switch(PlayState.SONG.stage){
-		case 'house':
-			background.visible = false;
-			fire.visible = false;
-		case 'hell': 
-			backgthing.visible = false;
-			thingy.visible = false;
-			floorthing.visible = false;
-		case 'kitchen': 
-			switch(idk){
-				case true: 
-					background.visible = false;
-					wall.visible = true;
-					bottomBoppers.visible = false;
-					frontDudes.visible = true;
-				case false: 
-					background.visible = true;
-					wall.visible = false;
-					bottomBoppers.visible = true;
-					frontDudes.visible = false;
-			}
+
 		}
 	}
 }
