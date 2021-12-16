@@ -324,6 +324,11 @@ class PlayState extends MusicBeatState
 		detailsPausedText = "Paused - " + detailsText;
 		#end
 
+		screenshader.waveAmplitude = 1;
+		screenshader.waveFrequency = 2;
+		screenshader.waveSpeed = 1;
+		screenshader.shader.uTime.value[0] = new flixel.math.FlxRandom().float(-100000, 100000);
+
 		GameOverSubstate.resetVariables();
 		var songName:String = Paths.formatToSongPath(SONG.song);
 		curStage = PlayState.SONG.stage;
@@ -3582,6 +3587,7 @@ class PlayState extends MusicBeatState
 			limoCorpseTwo.visible = false;
 		}
 	}
+	
 
 	private var preventLuaRemove:Bool = false;
 	override function destroy() {
@@ -3638,9 +3644,6 @@ class PlayState extends MusicBeatState
 				{
 					UsingNewCam = true;
 				}
-			remove(boyfriend);
-			boyfriend = new Boyfriend(970, 80, 'bf');
-			add(boyfriend);
 
 			remove(gf);
 			gf = new Character(400, 40, 'banduP2');
@@ -3667,18 +3670,24 @@ class PlayState extends MusicBeatState
 			curbg = bg;
 			add(bg);
 			UsingNewCam = true;
-
-			remove(boyfriend);
-			boyfriend = new Boyfriend(970, 80, 'bf');
-			add(boyfriend);
+			health = 2;
+			strumLine.y = FlxG.height - 165;
+			playerStrums.forEach(function(spr:FlxSprite)
+				{
+					spr.x = ((FlxG.width / 2) - (spr.width / 2)) + (Math.sin(elapsedtime + (spr.ID)) * 300);
+					spr.y = ((FlxG.height / 2) - (spr.height / 2)) + (Math.cos(elapsedtime + (spr.ID)) * 300);
+				});
+				dadStrums.forEach(function(spr:FlxSprite)
+				{
+					spr.x = ((FlxG.width / 2) - (spr.width / 2)) + (Math.sin((elapsedtime + (spr.ID )) * 2) * 300);
+					spr.y = ((FlxG.height / 2) - (spr.height / 2)) + (Math.cos((elapsedtime + (spr.ID)) * 2) * 300);
+				});
 
 			remove(dad);
 			dad = new Character(0, 0, 'unfair');
 			add(dad);
 
 			remove(gf);
-			gf = new Character(580, 80, 'gf');
-			add(gf);
 		}
 
 		if (curStep == 2535 && curSong.toLowerCase() == 'applecore'){
