@@ -3600,8 +3600,8 @@ class PlayState extends MusicBeatState
 			add(boyfriend);
 		}
 
-		if (curStep == 2549 && curSong.toLowerCase() == 'applecore'){
-			camHUD.zoom -= 90000, 0.15;
+		if (curStep == 2974 && curSong.toLowerCase() == 'applecore'){
+			
 			var oldbx = boyfriend.x;
 			var oldby = boyfriend.y;
 			var olddx = dad.x; 
@@ -3616,27 +3616,26 @@ class PlayState extends MusicBeatState
 			testshader.waveSpeed = 2;
 			bg.shader = testshader.shader;
 			curbg = bg;
-			add(bg);
+			camHUD.zoom -= 90000;
 			UsingNewCam = true;
-			remove(gf);
-			gf = new Character(400, 40, 'gf');
-			add(gf);
+			add(bg);
 
 			remove(dad);
 			dad = new Character(120, 80, 'unfair');
 			add(dad);
-
+			remove(gf);
+			gf = new Character(400, 40, 'gf');
+			add(gf);
 			remove(boyfriend);
 			boyfriend = new Boyfriend(oldbx, oldby, 'bf');
 			add(boyfriend);
 		}
 
-		if (curStep == 2535 && curSong.toLowerCase() == 'applecore'){
+		if (curStep == 2860 && curSong.toLowerCase() == 'applecore'){
+			FlxG.camera.flash(FlxColor.WHITE, 5);
 			FlxG.camera.zoom += 0.015;
 			camHUD.zoom += 90000;
 		}
-
-
 
 
 		lastStepHit = curStep;
