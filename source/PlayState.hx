@@ -77,18 +77,17 @@ class PlayState extends MusicBeatState
 	public static var STRUM_X = 42;
 	public static var STRUM_X_MIDDLESCROLL = -278;
 	public static var screenshader:Shaders.PulseEffect = new PulseEffect();
-
 	public static var ratingStuff:Array<Dynamic> = [
-		['You Suck!', 0.2], //From 0% to 19%
-		['Shit', 0.4], //From 20% to 39%
-		['Bad', 0.5], //From 40% to 49%
-		['Bruh', 0.6], //From 50% to 59%
-		['Meh', 0.69], //From 60% to 68%
-		['Nice', 0.7], //69%
-		['Good', 0.8], //From 70% to 79%
-		['Great', 0.9], //From 80% to 89%
-		['Sick!', 1], //From 90% to 99%
-		['Perfect!!', 1] //The value on this one isn't used actually, since Perfect is always "1"
+		['Damn dude, your garbage.', 0.2], //From 0% to 19%
+		['Ouch thats not good.', 0.4], //From 20% to 39%
+		['I guess your getting bad.', 0.5], //From 40% to 49%
+		['Eh, your okay.', 0.6], //From 50% to 59%
+		['Hmm your alright.', 0.69], //From 60% to 68%
+		['Cool your about 69% better!', 0.7], //69%
+		['Nice job!', 0.8], //From 70% to 79%
+		['Woah, your good.', 0.9], //From 80% to 89%
+		['DAMN DANIEL YORU GOOD', 1], //From 90% to 99%
+		['Holy bambis corn your amazing as hell!', 1] //The value on this one isn't used actually, since Perfect is always "1"
 	];
 	
 	#if (haxe >= "4.0.0")
@@ -106,6 +105,7 @@ class PlayState extends MusicBeatState
 	//event variables
 	private var isCameraOnForcedPos:Bool = false;
 	#if (haxe >= "4.0.0")
+	public var elapsedtime:Float = 0;
 	public var boyfriendMap:Map<String, Boyfriend> = new Map();
 	public var dadMap:Map<String, Character> = new Map();
 	public var gfMap:Map<String, Character> = new Map();
@@ -203,7 +203,6 @@ class PlayState extends MusicBeatState
 
 	var halloweenBG:BGSprite;
 	var halloweenWhite:BGSprite;
-	var daBackground:BackgroundSprite;
 	var phillyCityLights:FlxTypedGroup<BGSprite>;
 	var phillyTrain:BGSprite;
 	var blammedLightsBlack:ModchartSprite;
@@ -323,6 +322,11 @@ class PlayState extends MusicBeatState
 		// String for when the game is paused
 		detailsPausedText = "Paused - " + detailsText;
 		#end
+
+		screenshader.waveAmplitude = 1;
+		screenshader.waveFrequency = 2;
+		screenshader.waveSpeed = 1;
+		screenshader.shader.uTime.value[0] = new flixel.math.FlxRandom().float(-100000, 100000);
 
 		GameOverSubstate.resetVariables();
 		var songName:String = Paths.formatToSongPath(SONG.song);
@@ -691,6 +695,7 @@ class PlayState extends MusicBeatState
 
 		opponentStrums = new FlxTypedGroup<StrumNote>();
 		playerStrums = new FlxTypedGroup<StrumNote>();
+		
 
 		// startCountdown();
 
@@ -833,64 +838,6 @@ class PlayState extends MusicBeatState
 		{
 			switch (daSong)
 			{
-				case "monster":
-					var whiteScreen:FlxSprite = new FlxSprite(0, 0).makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.WHITE);
-					add(whiteScreen);
-					whiteScreen.scrollFactor.set();
-					whiteScreen.blend = ADD;
-					camHUD.visible = false;
-					snapCamFollowToPos(dad.getMidpoint().x + 150, dad.getMidpoint().y - 100);
-					inCutscene = true;
-
-					FlxTween.tween(whiteScreen, {alpha: 0}, 1, {
-						startDelay: 0.1,
-						ease: FlxEase.linear,
-						onComplete: function(twn:FlxTween)
-						{
-							camHUD.visible = true;
-							remove(whiteScreen);
-							startCountdown();
-						}
-					});
-					FlxG.sound.play(Paths.soundRandom('thunder_', 1, 2));
-					gf.playAnim('scared', true);
-					boyfriend.playAnim('scared', true);
-
-				case "winter-horrorland":
-					var blackScreen:FlxSprite = new FlxSprite().makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.BLACK);
-					add(blackScreen);
-					blackScreen.scrollFactor.set();
-					camHUD.visible = false;
-					inCutscene = true;
-
-					FlxTween.tween(blackScreen, {alpha: 0}, 0.7, {
-						ease: FlxEase.linear,
-						onComplete: function(twn:FlxTween) {
-							remove(blackScreen);
-						}
-					});
-					FlxG.sound.play(Paths.sound('Lights_Turn_On'));
-					snapCamFollowToPos(400, -2050);
-					FlxG.camera.focusOn(camFollow);
-					FlxG.camera.zoom = 1.5;
-
-					new FlxTimer().start(0.8, function(tmr:FlxTimer)
-					{
-						camHUD.visible = true;
-						remove(blackScreen);
-						FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, 2.5, {
-							ease: FlxEase.quadInOut,
-							onComplete: function(twn:FlxTween)
-							{
-								startCountdown();
-							}
-						});
-					});
-				case 'senpai' | 'roses' | 'thorns':
-					if(daSong == 'roses') FlxG.sound.play(Paths.sound('ANGRY'));
-					schoolIntro(doof);
-				case 'inquiry':
-					startDialogue(dialogueJson);
 				default:
 					startCountdown();
 			}
@@ -3582,6 +3529,7 @@ class PlayState extends MusicBeatState
 			limoCorpseTwo.visible = false;
 		}
 	}
+	
 
 	private var preventLuaRemove:Bool = false;
 	override function destroy() {
@@ -3622,8 +3570,11 @@ class PlayState extends MusicBeatState
 
 
 		if (curStep == 900 && curSong.toLowerCase() == 'applecore'){
+			var oldbx = boyfriend.x;
+			var oldby = boyfriend.y;
+			var olddx = dad.x; 
+			var olddy = dad.y;
 			FlxG.camera.flash(FlxColor.BLACK, 5);
-			remove(daBackground);
 			var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('dylan/poop'));
 			bg.active = true;
 			defaultCamZoom = 0.7;
@@ -3634,13 +3585,7 @@ class PlayState extends MusicBeatState
 			bg.shader = testshader.shader;
 			curbg = bg;
 			add(bg);
-			if (SONG.song.toLowerCase() == 'applecore')
-				{
-					UsingNewCam = true;
-				}
-			remove(boyfriend);
-			boyfriend = new Boyfriend(970, 80, 'bf');
-			add(boyfriend);
+			UsingNewCam = true;
 
 			remove(gf);
 			gf = new Character(400, 40, 'banduP2');
@@ -3649,16 +3594,22 @@ class PlayState extends MusicBeatState
 			remove(dad);
 			dad = new Character(120, 80, 'pissedfarmer');
 			add(dad);
+
+			remove(boyfriend);
+			boyfriend = new Boyfriend(oldbx, oldby, 'bf');
+			add(boyfriend);
 		}
 
 		if (curStep == 2549 && curSong.toLowerCase() == 'applecore'){
-			FlxG.camera.zoom -= 0.015;
-			camHUD.zoom -= 90000;
+			camHUD.zoom -= 90000, 0.15;
+			var oldbx = boyfriend.x;
+			var oldby = boyfriend.y;
+			var olddx = dad.x; 
+			var olddy = dad.y;
 			FlxG.camera.flash(FlxColor.BLACK, 5);
-			remove(daBackground);
 			var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('dylan/yeah'));
 			bg.active = true;
-			defaultCamZoom = 0.6;
+			defaultCamZoom = 0.7;
 			var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
 			testshader.waveAmplitude = 0.1;
 			testshader.waveFrequency = 5;
@@ -3667,18 +3618,17 @@ class PlayState extends MusicBeatState
 			curbg = bg;
 			add(bg);
 			UsingNewCam = true;
-
-			remove(boyfriend);
-			boyfriend = new Boyfriend(970, 80, 'bf');
-			add(boyfriend);
+			remove(gf);
+			gf = new Character(400, 40, 'gf');
+			add(gf);
 
 			remove(dad);
-			dad = new Character(0, 0, 'unfair');
+			dad = new Character(120, 80, 'unfair');
 			add(dad);
 
-			remove(gf);
-			gf = new Character(580, 80, 'gf');
-			add(gf);
+			remove(boyfriend);
+			boyfriend = new Boyfriend(oldbx, oldby, 'bf');
+			add(boyfriend);
 		}
 
 		if (curStep == 2535 && curSong.toLowerCase() == 'applecore'){
