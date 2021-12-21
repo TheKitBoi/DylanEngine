@@ -19,6 +19,11 @@ import flixel.util.FlxColor;
 import lime.app.Application;
 import Achievements;
 import editors.MasterEditorMenu;
+import flixel.FlxSubState;
+import flixel.group.FlxGroup;
+import flixel.util.FlxTimer;
+import lime.net.curl.CURLCode;
+import WeekData;
 
 using StringTools;
 
@@ -31,11 +36,12 @@ class MainMenuState extends MusicBeatState
 	private var camGame:FlxCamera;
 	private var camAchievement:FlxCamera;
 	
-	var optionShit:Array<String> = ['story_mode', 'freeplay', 'awards', 'credits', 'options'];
+	var optionShit:Array<String> = ['story_mode', 'freeplay', 'options'];
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
 	var camFollowPos:FlxObject;
+	var curDifficulty:Int = 1;
 
 	override function create()
 	{
@@ -191,11 +197,28 @@ class MainMenuState extends MusicBeatState
 							switch (daChoice)
 							{
 								case 'story_mode':
-									MusicBeatState.switchState(new StoryMenuState());
+								PlayState.storyPlaylist = ["applecore"];
+								PlayState.isStoryMode = true;
+								PlayState.seenCutscene = false;
+
+								var diffic = CoolUtil.difficultyStuff[curDifficulty][1];
+								if (diffic == null) 
+									diffic = '';
+
+								PlayState.storyDifficulty = curDifficulty;
+
+								PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
+								PlayState.storyWeek = 1;
+								PlayState.campaignScore = 0;
+								PlayState.campaignMisses = 0;
+								new FlxTimer().start(0.5, function(tmr:FlxTimer)
+								{
+									LoadingState.loadAndSwitchState(new PlayState());
+									FlxG.sound.music.volume = 0;
+									FreeplayState.destroyFreeplayVocals();
+								});
 								case 'freeplay':
 									MusicBeatState.switchState(new FreeplayState());
-								case 'credits':
-									MusicBeatState.switchState(new CreditsState());
 								case 'options':
 									MusicBeatState.switchState(new OptionsState());
 							}

@@ -18,12 +18,12 @@ function onUpdate(elapsed)
       doTweenY(dadTweenY, 'dad', 80-20*math.sin((currentBeat*0.25)*math.pi),0.1)
     end
 
-    if curStep >= 900 and curStep <= 2549 then
+    if curStep >= 900 and curStep <= 2974 then
         local currentBeat = (songPos/1000)*(bpm/60)
         doTweenY(dadTweenY, 'gf', 80-20*math.sin((currentBeat*0.25)*math.pi),0.1)
     end
 
-    if curStep >= 2549 then
+    if curStep >= 2974 then
         local currentBeat = (songPos/1000)*(bpm/60)
         function opponentNoteHit(id, direction, noteType, isSustainNote)
             cameraSetTarget('dad')
@@ -47,6 +47,7 @@ function onUpdate(elapsed)
         noteTweenY('defaultFPlayerStrumY3', 3, ((screenHeight / 2) - (157 / 2)) + (math.cos((currentBeat) + (7) * 2) * 300), 0.001)
         setPropertyFromClass('ClientPrefs', 'ghostTapping', false)
         setPropertyFromClass('ClientPrefs', 'downScroll', true)
+        setPropertyFromClass('ClientPrefs', 'middleScroll', false)
     end
 end
 
@@ -56,4 +57,11 @@ function onCreate()
 			setPropertyFromGroup('unspawnNotes', i, 'texture', 'NOTE_assets_3D'); --Change texture
 		end
 	end
+end    
+
+function onDestroy()
+	if not keepScroll then
+        setPropertyFromClass('ClientPrefs', 'downScroll', false)
+        setPropertyFromClass('ClientPrefs', 'middleScroll', false)
+    end
 end    

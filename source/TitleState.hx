@@ -141,6 +141,8 @@ class TitleState extends MusicBeatState
 	}
 
 	var logoBl:FlxSprite;
+	var monkey_guy:FlxSprite;
+	var monkey_person:FlxSprite;
 	var gfDance:FlxSprite;
 	var danceLeft:Bool = false;
 	var titleText:FlxSprite;
@@ -198,12 +200,17 @@ class TitleState extends MusicBeatState
 
 		Conductor.changeBPM(102);
 		persistentUpdate = true;
-
-		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
-		// bg.antialiasing = ClientPrefs.globalAntialiasing;
+		var monkeyguy:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('dylan/monkey_guy'));
+		var monkeyperson:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('dylan/monkey_person'));
+		var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('dylan/yeah'));
+		bg.antialiasing = ClientPrefs.globalAntialiasing;
+		monkeyguy.antialiasing = ClientPrefs.globalAntialiasing;
+		monkeyperson.antialiasing = ClientPrefs.globalAntialiasing;
 		// bg.setGraphicSize(Std.int(bg.width * 0.6));
 		// bg.updateHitbox();
 		add(bg);
+		//add(monkeyguy);
+		//add(monkeyperson);
 
 		logoBl = new FlxSprite(-150, -100);
 		logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
@@ -212,6 +219,22 @@ class TitleState extends MusicBeatState
 		logoBl.animation.play('bump');
 		logoBl.updateHitbox();
 		logoBl.screenCenter();
+
+		monkey_person = new FlxSprite(-150, -100);
+		monkey_person.frames = Paths.getSparrowAtlas('dylan/monkey_person_animated');
+		monkey_person.antialiasing = ClientPrefs.globalAntialiasing;
+		monkey_person.animation.addByPrefix('bounce', 'BamberinoBounce', 24);
+		monkey_person.animation.play('bounce');
+		monkey_person.updateHitbox();
+		logoBl.screenCenter(Y);
+
+		monkey_guy = new FlxSprite(-150, -200);
+		monkey_guy.frames = Paths.getSparrowAtlas('dylan/monkey_guy_animated');
+		monkey_guy.antialiasing = ClientPrefs.globalAntialiasing;
+		monkey_guy.animation.addByPrefix('latersisters', 'whackbandi', 24);
+		monkey_guy.animation.play('latersisters');
+		monkey_guy.updateHitbox();
+		logoBl.screenCenter(Y);
 		//logoBl.color = FlxColor.BLACK;
 
 		swagShader = new ColorSwap();
@@ -222,8 +245,14 @@ class TitleState extends MusicBeatState
 	//	gfDance.antialiasing = ClientPrefs.globalAntialiasing;
 	//	add(gfDance);
 	//	gfDance.shader = swagShader.shader;
+		
+		add(monkey_person);
+		add(monkey_guy);
 		add(logoBl);
+		
 		logoBl.shader = swagShader.shader;
+		monkey_guy.shader = swagShader.shader;
+		monkey_person.shader = swagShader.shader;
 
 		titleText = new FlxSprite(100, FlxG.height * 0.8);
 		titleText.frames = Paths.getSparrowAtlas('titleEnter');
@@ -236,12 +265,16 @@ class TitleState extends MusicBeatState
 		add(titleText);
 
 		var logo:FlxSprite = new FlxSprite().loadGraphic(Paths.image('logo'));
-	//	logo.screenCenter();
+		//logo.screenCenter();
 		//logo.antialiasing = ClientPrefs.globalAntialiasing;
 		//add(logo);
 
-		//FlxTween.tween(logoBl, {y: logoBl.y + 50}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG});
-		//FlxTween.tween(logo, {y: logoBl.y + 50}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG, startDelay: 0.1});
+		//FlxTween.tween(logoBl, {y: logoBl.y + 50}, 0.6, {ease: FlxEase.quartInOut, type: PINGPONG});
+		//FlxTween.tween(monkeyperson, {y: logoBl.y + 50}, 0.6, {ease: FlxEase.quartInOut, type: PINGPONG});
+		//FlxTween.tween(monkeyguy, {y: logoBl.y + 50}, 0.6, {ease: FlxEase.quartInOut, type: PINGPONG});
+		FlxTween.tween(monkey_guy, {y: logoBl.y + 50}, 0.6, {ease: FlxEase.quartInOut, type: PINGPONG});
+		FlxTween.tween(monkey_person, {y: logoBl.y + 50}, 0.6, {ease: FlxEase.quartInOut, type: PINGPONG});
+		//FlxTween.tween(logo, {y: logoBl.y + 50}, 0.6, {ease: FlxEase.quartInOut, type: PINGPONG, startDelay: 0.1});
 
 		credGroup = new FlxGroup();
 		add(credGroup);

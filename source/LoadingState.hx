@@ -19,7 +19,7 @@ import haxe.io.Path;
 class LoadingState extends MusicBeatState
 {
 	inline static var MIN_TIME = 1.0;
-
+	static public var dir:String = 'shared';
 	// Browsers will load create(), you can make your song load a custom directory there
 	// If you're compiling to desktop (or something that doesn't use NO_PRELOAD_ALL), search for getNextState instead
 	// I'd recommend doing it on both actually lol
@@ -152,7 +152,7 @@ class LoadingState extends MusicBeatState
 	
 	static function getNextState(target:FlxState, stopMusic = false):FlxState
 	{
-		var directory:String = 'shared';
+		var directory:String = dir;
 		var weekDir:String = StageData.forceNextDirectory;
 		StageData.forceNextDirectory = null;
 

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="monkey_guy_animated.png">
+	<!-- Created with Adobe Animate version 22.0.1.105 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="whackbandi0000" x="0" y="0" width="750" height="1058"/>
+	<SubTexture name="whackbandi0001" x="0" y="0" width="750" height="1058"/>
+	<SubTexture name="whackbandi0002" x="0" y="0" width="750" height="1058"/>
+	<SubTexture name="whackbandi0003" x="750" y="0" width="750" height="1058"/>
+	<SubTexture name="whackbandi0004" x="750" y="0" width="750" height="1058"/>
+	<SubTexture name="whackbandi0005" x="750" y="0" width="750" height="1058"/>
+	<SubTexture name="whackbandi0006" x="1500" y="0" width="750" height="1058"/>
+	<SubTexture name="whackbandi0007" x="2250" y="0" width="750" height="1058"/>
+	<SubTexture name="whackbandi0008" x="3000" y="0" width="750" height="1058"/>
+	<SubTexture name="whackbandi0009" x="3750" y="0" width="750" height="1058"/>
+	<SubTexture name="whackbandi0010" x="4500" y="0" width="750" height="1058"/>
+	<SubTexture name="whackbandi0011" x="5250" y="0" width="750" height="1058"/>
+	<SubTexture name="whackbandi0012" x="6000" y="0" width="750" height="1058"/>
+	<SubTexture name="whackbandi0013" x="6750" y="0" width="750" height="1058"/>
+	<SubTexture name="whackbandi0014" x="0" y="1058" width="750" height="1058"/>
+	<SubTexture name="whackbandi0015" x="750" y="1058" width="750" height="1058"/>
+	<SubTexture name="whackbandi0016" x="1500" y="1058" width="750" height="1058"/>
+	<SubTexture name="whackbandi0017" x="2250" y="1058" width="750" height="1058"/>
+	<SubTexture name="whackbandi0018" x="3000" y="1058" width="750" height="1058"/>
+	<SubTexture name="whackbandi0019" x="3750" y="1058" width="750" height="1058"/>
+	<SubTexture name="whackbandi0020" x="4500" y="1058" width="750" height="1058"/>
+	<SubTexture name="whackbandi0021" x="5250" y="1058" width="750" height="1058"/>
+	<SubTexture name="whackbandi0022" x="6000" y="1058" width="750" height="1058"/>
+	<SubTexture name="whackbandi0023" x="6750" y="1058" width="750" height="1058"/>
+	<SubTexture name="whackbandi0024" x="0" y="2116" width="750" height="1058"/>
+	<SubTexture name="whackbandi0025" x="0" y="2116" width="750" height="1058"/>
+	<SubTexture name="whackbandi0026" x="0" y="2116" width="750" height="1058"/>
+	<SubTexture name="whackbandi0027" x="0" y="2116" width="750" height="1058"/>
+	<SubTexture name="whackbandi0028" x="0" y="2116" width="750" height="1058"/>
+	<SubTexture name="whackbandi0029" x="0" y="2116" width="750" height="1058"/>
+	<SubTexture name="whackbandi0030" x="0" y="2116" width="750" height="1058"/>
+	<SubTexture name="whackbandi0031" x="0" y="2116" width="750" height="1058"/>
+	<SubTexture name="whackbandi0032" x="0" y="2116" width="750" height="1058"/>
+	<SubTexture name="whackbandi0033" x="0" y="2116" width="750" height="1058"/>
+	<SubTexture name="whackbandi0034" x="0" y="2116" width="750" height="1058"/>
+	<SubTexture name="whackbandi0035" x="6750" y="1058" width="750" height="1058"/>
+	<SubTexture name="whackbandi0036" x="6000" y="1058" width="750" height="1058"/>
+	<SubTexture name="whackbandi0037" x="5250" y="1058" width="750" height="1058"/>
+	<SubTexture name="whackbandi0038" x="750" y="2116" width="750" height="1058"/>
+	<SubTexture name="whackbandi0039" x="1500" y="2116" width="750" height="1058"/>
+	<SubTexture name="whackbandi0040" x="2250" y="2116" width="750" height="1058"/>
+	<SubTexture name="whackbandi0041" x="3000" y="2116" width="750" height="1058"/>
+	<SubTexture name="whackbandi0042" x="2250" y="1058" width="750" height="1058"/>
+	<SubTexture name="whackbandi0043" x="3750" y="2116" width="750" height="1058"/>
+	<SubTexture name="whackbandi0044" x="4500" y="2116" width="750" height="1058"/>
+	<SubTexture name="whackbandi0045" x="5250" y="2116" width="750" height="1058"/>
+	<SubTexture name="whackbandi0046" x="6000" y="2116" width="750" height="1058"/>
+	<SubTexture name="whackbandi0047" x="6750" y="2116" width="750" height="1058"/>
+	<SubTexture name="whackbandi0048" x="0" y="3174" width="750" height="1058"/>
+	<SubTexture name="whackbandi0049" x="750" y="3174" width="750" height="1058"/>
+	<SubTexture name="whackbandi0050" x="1500" y="3174" width="750" height="1058"/>
+	<SubTexture name="whackbandi0051" x="3000" y="0" width="750" height="1058"/>
+	<SubTexture name="whackbandi0052" x="2250" y="3174" width="750" height="1058"/>
+	<SubTexture name="whackbandi0053" x="3000" y="3174" width="750" height="1058"/>
+	<SubTexture name="whackbandi0054" x="1500" y="0" width="750" height="1058"/>
+	<SubTexture name="whackbandi0055" x="750" y="0" width="750" height="1058"/>
+	<SubTexture name="whackbandi0056" x="750" y="0" width="750" height="1058"/>
+	<SubTexture name="whackbandi0057" x="0" y="0" width="750" height="1058"/>
+	<SubTexture name="whackbandi0058" x="0" y="0" width="750" height="1058"/>
+	<SubTexture name="whackbandi0059" x="0" y="0" width="750" height="1058"/>
+</TextureAtlas>
