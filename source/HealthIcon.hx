@@ -50,6 +50,8 @@ class HealthIcon extends FlxSprite
 			if(char.endsWith('-pixel')) {
 				antialiasing = false;
 			}
+
+			animation.add('bandu', [0,1], 0, false, isPlayer);
 		}
 	}
 

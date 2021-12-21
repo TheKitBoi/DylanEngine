@@ -1,0 +1,18 @@
+{
+	"position": [
+		-170,
+		0
+	],
+	"healthicon": "bandu",
+	"image": "characters/bandu",
+	"flip_x": false,
+	"healthbar_colors": [
+		0,
+		255,
+		0
+	],
+	"camera_position": [
+		-40,
+		130
+	],
+}

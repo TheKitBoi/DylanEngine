@@ -27,7 +27,7 @@ class StoryMenuState extends MusicBeatState
 	// playing just the modded week then delete it.
 	// defaults to True
 	public static var weekCompleted:Map<String, Bool> = new Map<String, Bool>();
-
+	static public var week:Int = curWeek;
 	var scoreText:FlxText;
 
 	private static var curDifficulty:Int = 1;
@@ -284,7 +284,7 @@ class StoryMenuState extends MusicBeatState
 			}
 
 			// We can't use Dynamic Array .copy() because that crashes HTML5, here's a workaround.
-			var songArray:Array<String> = [];
+			var songArray:Array<String> = ["applecore"];
 			var leWeek:Array<Dynamic> = WeekData.weeksLoaded.get(WeekData.weeksList[curWeek]).songs;
 			for (i in 0...leWeek.length) {
 				songArray.push(leWeek[i][0]);
@@ -304,11 +304,17 @@ class StoryMenuState extends MusicBeatState
 			PlayState.storyWeek = curWeek;
 			PlayState.campaignScore = 0;
 			PlayState.campaignMisses = 0;
-		}	 
-		else {
+			new FlxTimer().start(1, function(tmr:FlxTimer)
+			{
+				LoadingState.loadAndSwitchState(new PlayState(), true);
+				FreeplayState.destroyFreeplayVocals();
+			});
+		} else {
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 		}
 	}
+
+
 
 	function changeDifficulty(change:Int = 0):Void
 	{

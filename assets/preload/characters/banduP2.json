@@ -1,103 +1,59 @@
 {
 	"animations": [
 		{
-			"offsets": [
-				0,
-				0
-			],
 			"loop": false,
-			"fps": 24,
-			"anim": "idle-alt",
-			"indices": [],
-			"name": "phones shake"
-		},
-		{
-			"offsets": [
-				0,
-				0
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "phonedie",
-			"indices": [],
-			"name": "phones fall"
-		},
-		{
-			"offsets": [
-				0,
-				0
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "danceRight",
-			"indices": [],
-			"name": "phones shake"
-		},
-		{
-			"offsets": [
-				0,
-				0
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "danceLeft",
-			"indices": [],
-			"name": "phones shake"
-		},
-		{
-			"offsets": [
-				-10,
-				-50
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singDOWN",
-			"indices": [],
-			"name": "sad down"
-		},
-		{
 			"offsets": [
 				5,
 				-6
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "sad left"
+			"fps": 24,
+			"name": "sad left",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-29,
 				27
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "sad up"
+			"fps": 24,
+			"name": "sad up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-48,
+				-7
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "sad right",
+			"indices": []
 		},
 		{
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
-			"anim": "scared",
 			"indices": [],
-			"name": "phones shake"
+			"fps": 24,
+			"anim": "singDOWN",
+			"loop": false,
+			"name": "sad down"
 		},
 		{
 			"offsets": [
-				-48,
-				-7
+				0,
+				0
 			],
 			"indices": [],
 			"fps": 24,
-			"anim": "singRIGHT",
+			"anim": "idle",
 			"loop": false,
-			"name": "sad right"
+			"name": "phones fall"
 		}
 	],
 	"no_antialiasing": false,
@@ -114,8 +70,8 @@
 		0
 	],
 	"camera_position": [
-		-20,
-		140
+		-50,
+		120
 	],
 	"sing_duration": 4,
 	"scale": 0.75

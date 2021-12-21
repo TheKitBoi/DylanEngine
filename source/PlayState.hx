@@ -187,7 +187,7 @@ class PlayState extends MusicBeatState
 	public static var usedPractice:Bool = false;
 	public static var changedDifficulty:Bool = false;
 	public static var cpuControlled:Bool = false;
-
+	public static var dEngineVersion:String = '1.1.2';
 	var botplaySine:Float = 0;
 	var botplayTxt:FlxText;
 
@@ -265,6 +265,8 @@ class PlayState extends MusicBeatState
 	var keysPressed:Array<Bool> = [false, false, false, false];
 	var boyfriendIdleTime:Float = 0.0;
 	var boyfriendIdled:Bool = false;
+	var dylanEngineWatermark:FlxText;
+	var creditsWatermark:FlxText;
 
 	// Lua shit
 	private var luaDebugGroup:FlxTypedGroup<DebugLuaText>;
@@ -680,17 +682,19 @@ class PlayState extends MusicBeatState
 		{
 			case 'mealie':
 				credits = 'Original Song made by Alexander Cooper 19!';
-			case 'cheating' | 'disruption':
-				credits = 'Screw you!';
+			case 'cheating':
+				credits = 'Stop cheatin bruv!';
+
+			case 'applecore':
+				credits = 'Recharted and ported by DylanK/ninjaninja140!';
 			default:
-				credits = '';
+				credits = 'DylanEngine is pretty cool ngl';
 		}
-		var randomThingy:Int = FlxG.random.int(0, 0);
 		var dylanEngine:String = 'DylanEngine';
 		switch(randomThingy)
 	    {
 			case 0:
-				dylanEngine = 'Golden Apple ';
+				dylanEngine = 'DylanEngine ';
 		}
 		var creditsText:Bool = credits != '';
 		var textYPos:Float = healthBarBG.y + 50;
@@ -699,13 +703,13 @@ class PlayState extends MusicBeatState
 			textYPos = healthBarBG.y + 30;
 		}
 		// Add Kade Engine watermark
-		kadeEngineWatermark = new FlxText(4, textYPos, 0,
+		dylanEngineWatermark = new FlxText(4, textYPos, 0,
 		SONG.song
-		+ " - " + dylanEngine + "(Version )", 16);
-		kadeEngineWatermark.setFormat(Paths.font("comic.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		kadeEngineWatermark.scrollFactor.set();
-		kadeEngineWatermark.borderSize = 1.25;
-		add(kadeEngineWatermark);
+		+ " - " + dylanEngine + "(Version " + dEngineVersion ")", 16);
+		dylanEngineWatermark.setFormat(Paths.font("comic.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		dylanEngineWatermark.scrollFactor.set();
+		dylanEngineWatermark.borderSize = 1.25;
+		add(dylanEngineWatermark);
 
 		creditsWatermark = new FlxText(4, healthBarBG.y + 50, 0, credits, 16);
 		creditsWatermark.setFormat(Paths.font("comic.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
