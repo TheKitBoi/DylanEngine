@@ -362,7 +362,6 @@ class PlayState extends MusicBeatState
 				opponent: [100, 100]
 			};
 		}
-
 			
 		defaultCamZoom = stageData.defaultZoom;
 		isPixelStage = stageData.isPixelStage;
@@ -468,6 +467,12 @@ class PlayState extends MusicBeatState
 				curbg = bg;
 				add(bg);
 				UsingNewCam = true;
+
+			case 'cyclesbg':
+				var bandubackground = new FlxSprite(-130, -94).loadGraphic(Paths.image('dylan/yesThatIsATransFlag'));
+				bandubackground.active = true;
+				curbg = bandubackground;
+				add(bandubackground);
 		}
 
 		if(isPixelStage) {
@@ -689,8 +694,11 @@ class PlayState extends MusicBeatState
 				credits = 'Recharted and ported by DylanK/ninjaninja140!';
 			default:
 				credits = 'DylanEngine is pretty cool ngl';
+			case 'cycles':
+				credits = 'Original song made by Vania for Vs. Sonic.exe!';
 		}
 		var dylanEngine:String = 'DylanEngine';
+		var randomThingy:Int = FlxG.random.int(0, 0);
 		switch(randomThingy)
 	    {
 			case 0:
@@ -703,16 +711,14 @@ class PlayState extends MusicBeatState
 			textYPos = healthBarBG.y + 30;
 		}
 		// Add Kade Engine watermark
-		dylanEngineWatermark = new FlxText(4, textYPos, 0,
-		SONG.song
-		+ " - " + dylanEngine + "(Version " + dEngineVersion ")", 16);
-		dylanEngineWatermark.setFormat(Paths.font("comic.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		dylanEngineWatermark = new FlxText(4, textYPos, 0, SONG.song + " - " + dylanEngine + "(Version " + dEngineVersion + ")", 16);
+		dylanEngineWatermark.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		dylanEngineWatermark.scrollFactor.set();
 		dylanEngineWatermark.borderSize = 1.25;
 		add(dylanEngineWatermark);
 
 		creditsWatermark = new FlxText(4, healthBarBG.y + 50, 0, credits, 16);
-		creditsWatermark.setFormat(Paths.font("comic.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		creditsWatermark.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		creditsWatermark.scrollFactor.set();
 		creditsWatermark.borderSize = 1.25;
 		add(creditsWatermark);
@@ -2098,10 +2104,11 @@ class PlayState extends MusicBeatState
 				{
 					case 'bandu' | 'banduP2' | 'pissedfarmer':
 						camFollow.y = dad.getMidpoint().y;
+
 				}
 	
 			}
-	
+
 			if (!focusondad)
 			{
 				//camFollow.setPosition(boyfriend.getMidpoint().x - 100, boyfriend.getMidpoint().y - 100);
