@@ -61,6 +61,7 @@ end
 
 function onDestroy()
 	if not keepScroll then
+        setPropertyFromClass('ClientPrefs', 'ghostTapping', true)
         setPropertyFromClass('ClientPrefs', 'downScroll', false)
         setPropertyFromClass('ClientPrefs', 'middleScroll', false)
     end
