@@ -1682,7 +1682,7 @@ class PlayState extends MusicBeatState
 		if (FlxG.keys.justPressed.EIGHT && !endingSong && !inCutscene) {
 			switch (curSong.toLowerCase())
 			{
-				case 'applecore':
+				case 'supernovae':
 					PlayState.SONG = Song.loadFromJson("cheating", "cheating"); // you dun fucked up
 					screenshader.Enabled = false;
 					FlxG.switchState(new PlayState());
@@ -1693,13 +1693,16 @@ class PlayState extends MusicBeatState
 					FlxG.switchState(new PlayState());
 					return;
 				case 'mealie':
-					FlxG.switchState(new YouCheated());
+					screenshader.Enabled = false;
+					FlxG.switchState(new YouCheatedSomeoneIsComing());
 				default:
 					PlayState.SONG = Song.loadFromJson("cheating", "cheating"); // you dun fucked up
 					screenshader.Enabled = false;
 					FlxG.switchState(new PlayState());
 					return;
-			}
+					#if desktop
+					DiscordClient.changePresence("BRO GOT CAUGHT CHEATING LMAO", null, null, true);
+					#end
 		}
 
 		if (startingSong)
@@ -1939,9 +1942,7 @@ class PlayState extends MusicBeatState
 						notes.remove(daNote, true);
 						daNote.destroy();
 						if (SONG.song.toLowerCase()=='applecore')
-
 							{
-							
 							gf.playAnim('scared');
 							if (gf.animation.curAnim.name.startsWith('sing')) health -= 0.00005;
 							if (dad.animation.curAnim.name.startsWith('sing')) health -= 0.00005;
@@ -1949,7 +1950,19 @@ class PlayState extends MusicBeatState
 							}
 						if (SONG.song.toLowerCase()=='mealie')
 							{
-							
+							if (gf.animation.curAnim.name.startsWith('sing')) health -= 0.00005;
+							if (dad.animation.curAnim.name.startsWith('sing')) health -= 0.00005;
+							FlxG.camera.shake(0.005);
+							}
+						if (SONG.song.toLowerCase()=='logestic')
+							{
+							if (gf.animation.curAnim.name.startsWith('sing')) health -= 0.00005;
+							if (dad.animation.curAnim.name.startsWith('sing')) health -= 0.00005;
+							FlxG.camera.shake(0.005);
+							}
+
+						if (SONG.song.toLowerCase()=='cheating')
+							{
 							if (gf.animation.curAnim.name.startsWith('sing')) health -= 0.00005;
 							if (dad.animation.curAnim.name.startsWith('sing')) health -= 0.00005;
 							FlxG.camera.shake(0.005);
@@ -2123,13 +2136,7 @@ class PlayState extends MusicBeatState
 
 			if (!focusondad)
 			{
-				//camFollow.setPosition(boyfriend.getMidpoint().x - 100, boyfriend.getMidpoint().y - 100);
-	
-				switch(boyfriend.curCharacter)
-				{
-					case 'bandu' | 'banduP2' | 'pissedfarmer':
-						camFollow.y = boyfriend.getMidpoint().y;
-				}
+				camFollow.setPosition(boyfriend.getMidpoint().x - 100, boyfriend.getMidpoint().y - 100);
 			}
 		}
 
