@@ -95,6 +95,7 @@ class PlayState extends MusicBeatState
 	public var modchartTimers:Map<String, FlxTimer> = new Map();
 	public var modchartSounds:Map<String, FlxSound> = new Map();
 	#else
+	public static var screenshader:Shaders.PulseEffect = new PulseEffect();
 	public var modchartTweens:Map<String, FlxTween> = new Map<String, FlxTween>();
 	public var modchartSprites:Map<String, ModchartSprite> = new Map<String, Dynamic>();
 	public var modchartTimers:Map<String, FlxTimer> = new Map<String, FlxTimer>();
@@ -1679,11 +1680,26 @@ class PlayState extends MusicBeatState
 			iconP2.animation.curAnim.curFrame = 0;
 
 		if (FlxG.keys.justPressed.EIGHT && !endingSong && !inCutscene) {
-			persistentUpdate = false;
-			paused = true;
-			cancelFadeTween();
-			CustomFadeTransition.nextCamera = camOther;
-			MusicBeatState.switchState(new CharacterEditorState(SONG.player2));
+			switch (curSong.toLowerCase())
+			{
+				case 'applecore':
+					PlayState.SONG = Song.loadFromJson("cheating", "cheating"); // you dun fucked up
+					screenshader.Enabled = false;
+					FlxG.switchState(new PlayState());
+					return;
+				case 'cheating':
+					PlayState.SONG = Song.loadFromJson("mealie", "mealie"); // you dun fucked up again
+					screenshader.Enabled = false;
+					FlxG.switchState(new PlayState());
+					return;
+				case 'mealie':
+					FlxG.switchState(new YouCheated());
+				default:
+					PlayState.SONG = Song.loadFromJson("cheating", "cheating"); // you dun fucked up
+					screenshader.Enabled = false;
+					FlxG.switchState(new PlayState());
+					return;
+			}
 		}
 
 		if (startingSong)
