@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="menu_donate.png">
+<TextureAtlas imagePath="menu_story_mode.png">
 	<!-- Created with Adobe Animate version 21.0.1.37179 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="donate basic0000" x="4" y="4" width="444" height="117" pivotX="10.5" pivotY="14.85"/>
-	<SubTexture name="donate basic0001" x="4" y="4" width="444" height="117"/>
-	<SubTexture name="donate basic0002" x="4" y="4" width="444" height="117"/>
-	<SubTexture name="donate basic0003" x="448" y="4" width="444" height="117"/>
-	<SubTexture name="donate basic0004" x="448" y="4" width="444" height="117"/>
-	<SubTexture name="donate basic0005" x="448" y="4" width="444" height="117"/>
-	<SubTexture name="donate basic0006" x="4" y="121" width="444" height="117"/>
-	<SubTexture name="donate basic0007" x="4" y="121" width="444" height="117"/>
-	<SubTexture name="donate basic0008" x="4" y="121" width="444" height="117"/>
-	<SubTexture name="donate white0000" x="4" y="238" width="590" height="157" pivotX="18.2" pivotY="23.95" frameX="0" frameY="-2" frameWidth="590" frameHeight="159"/>
-	<SubTexture name="donate white0001" x="4" y="395" width="587" height="154" frameX="-1" frameY="-5" frameWidth="590" frameHeight="159"/>
-	<SubTexture name="donate white0002" x="4" y="549" width="585" height="155" frameX="-3" frameY="0" frameWidth="590" frameHeight="159"/>
+	<SubTexture name="donate basic0000" x="3566" y="951" width="483" height="126" pivotX="26.55" pivotY="17.2"/>
+	<SubTexture name="donate basic0001" x="3566" y="951" width="483" height="126"/>
+	<SubTexture name="donate basic0002" x="3566" y="951" width="483" height="126"/>
+	<SubTexture name="donate basic0003" x="10" y="1098" width="483" height="126"/>
+	<SubTexture name="donate basic0004" x="10" y="1098" width="483" height="126"/>
+	<SubTexture name="donate basic0005" x="10" y="1098" width="483" height="126"/>
+	<SubTexture name="donate basic0006" x="1814" y="1099" width="483" height="126"/>
+	<SubTexture name="donate basic0007" x="1814" y="1099" width="483" height="126"/>
+	<SubTexture name="donate basic0008" x="1814" y="1099" width="483" height="126"/>
+	<SubTexture name="donate white0000" x="575" y="514" width="576" height="150" pivotX="72.85" pivotY="29.15"/>
+	<SubTexture name="donate white0001" x="1161" y="515" width="576" height="149" frameX="0" frameY="-1" frameWidth="576" frameHeight="150"/>
+	<SubTexture name="donate white0002" x="3050" y="651" width="576" height="148" frameX="0" frameY="-2" frameWidth="576" frameHeight="150"/>
 </TextureAtlas>

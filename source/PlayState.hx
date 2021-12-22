@@ -3391,7 +3391,6 @@ class PlayState extends MusicBeatState
 			curbg = bg;
 			add(bg);
 			UsingNewCam = true;
-			credits = 'Oh man, you disrupted him. You messed up big-time.';
 			remove(gf);
 			gf = new Character(400, 40, 'banduP2');
 			add(gf);
@@ -3416,7 +3415,6 @@ class PlayState extends MusicBeatState
 			var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('dylan/yeah'));
 			bg.active = true;
 			defaultCamZoom = 0.7;
-			credits = 'Ghost tapping is forced off! Screw You!';
 			var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
 			testshader.waveAmplitude = 0.1;
 			testshader.waveFrequency = 5;
