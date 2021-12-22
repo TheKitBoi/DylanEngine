@@ -78,4 +78,5 @@
     <SubTexture name="phones fall0015" x="3750" y="4604" width="750" height="946"/>
     <SubTexture name="phones fall0016" x="4500" y="4604" width="750" height="946"/>
     <SubTexture name="phones fall0017" x="4500" y="4604" width="750" height="946"/>
+    <SubTexture name="sad idle0017" x="4500" y="4604" width="750" height="946"/>
 </TextureAtlas>

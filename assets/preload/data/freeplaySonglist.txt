@@ -1,3 +1,5 @@
-applecore:bamb:9
-mealie:bamb:9
-logestic:bamb:9
+applecore:bandu:9
+mealie:disruption:9
+logestic:bandu:9
+cycles:bandu:9
+cheating:unfair:9

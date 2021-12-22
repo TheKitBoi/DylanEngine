@@ -17,7 +17,6 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import lime.app.Application;
-import Achievements;
 import editors.MasterEditorMenu;
 import flixel.FlxSubState;
 import flixel.group.FlxGroup;
@@ -34,7 +33,6 @@ class MainMenuState extends MusicBeatState
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
 	private var camGame:FlxCamera;
-	private var camAchievement:FlxCamera;
 	
 	var optionShit:Array<String> = ['story_mode', 'freeplay', 'options'];
 
@@ -51,11 +49,8 @@ class MainMenuState extends MusicBeatState
 		#end
 
 		camGame = new FlxCamera();
-		camAchievement = new FlxCamera();
-		camAchievement.bgColor.alpha = 0;
 
 		FlxG.cameras.reset(camGame);
-		FlxG.cameras.add(camAchievement);
 		FlxCamera.defaultCameras = [camGame];
 
 		transIn = FlxTransitionableState.defaultTransIn;
@@ -64,7 +59,7 @@ class MainMenuState extends MusicBeatState
 		persistentUpdate = persistentDraw = true;
 
 		var yScroll:Float = Math.max(0.25 - (0.05 * (optionShit.length - 4)), 0.1);
-		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
+		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menuBGBlue'));
 		bg.scrollFactor.set(0, yScroll);
 		bg.setGraphicSize(Std.int(bg.width * 1.175));
 		bg.updateHitbox();
@@ -77,7 +72,7 @@ class MainMenuState extends MusicBeatState
 		add(camFollow);
 		add(camFollowPos);
 
-		magenta = new FlxSprite(-80).loadGraphic(Paths.image('menuDesat'));
+		magenta = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
 		magenta.scrollFactor.set(0, yScroll);
 		magenta.setGraphicSize(Std.int(magenta.width * 1.175));
 		magenta.updateHitbox();
@@ -125,15 +120,10 @@ class MainMenuState extends MusicBeatState
 
 		changeItem();
 
-		#if ACHIEVEMENTS_ALLOWED
-		#end
 
 		super.create();
 	}
 
-	#if ACHIEVEMENTS_ALLOWED
-	// Unlocks "Freaky on a Friday Night" achievement
-	#end
 
 	var selectedSomethin:Bool = false;
 
@@ -197,26 +187,26 @@ class MainMenuState extends MusicBeatState
 							switch (daChoice)
 							{
 								case 'story_mode':
-								PlayState.storyPlaylist = ["applecore"];
-								PlayState.isStoryMode = true;
-								PlayState.seenCutscene = false;
+									PlayState.storyPlaylist = ["applecore"];
+									PlayState.isStoryMode = true;
+									PlayState.seenCutscene = false;
 
-								var diffic = CoolUtil.difficultyStuff[curDifficulty][1];
-								if (diffic == null) 
-									diffic = '';
+									var diffic = CoolUtil.difficultyStuff[curDifficulty][1];
+									if (diffic == null) 
+										diffic = '';
 
-								PlayState.storyDifficulty = curDifficulty;
+									PlayState.storyDifficulty = curDifficulty;
 
-								PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
-								PlayState.storyWeek = 1;
-								PlayState.campaignScore = 0;
-								PlayState.campaignMisses = 0;
-								new FlxTimer().start(0.5, function(tmr:FlxTimer)
-								{
-									LoadingState.loadAndSwitchState(new PlayState());
-									FlxG.sound.music.volume = 0;
-									FreeplayState.destroyFreeplayVocals();
-								});
+									PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
+									PlayState.storyWeek = 1;
+									PlayState.campaignScore = 0;
+									PlayState.campaignMisses = 0;
+									new FlxTimer().start(0.5, function(tmr:FlxTimer)
+										{
+											LoadingState.loadAndSwitchState(new PlayState());
+											FlxG.sound.music.volume = 0;
+											FreeplayState.destroyFreeplayVocals();
+										});
 								case 'freeplay':
 									MusicBeatState.switchState(new FreeplayState());
 								case 'options':

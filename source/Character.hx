@@ -93,55 +93,6 @@ class Character extends FlxSprite
 		switch (curCharacter)
 		{
 			//case 'your character name in case you want to hardcode him instead':
-			case 'bandu':
-				var characterPath:String = 'characters/hardcode/bandu-hardcode-mains.json';
-				var path:String = Paths.getPreloadPath(characterPath);
-				var rawJson = File.getContent(path);
-				var json:CharacterFile = cast Json.parse(rawJson);
-				if (!Assets.exists(path))
-				{
-					path = Paths.getPreloadPath('characters/' + DEFAULT_CHARACTER + '.json'); //If a character couldn't be found, change him to BF just to prevent a crash
-				}
-				if(Assets.exists(Paths.getPath('images/' + json.image + '.txt', TEXT))) {
-					frames = Paths.getPackerAtlas(json.image);
-				} else {
-					frames = Paths.getSparrowAtlas(json.image);
-				}
-				animation.addByPrefix('idle', 'idle', 24, true);
-				animation.addByPrefix('singUP', 'up', 24, false);
-				animation.addByPrefix('singRIGHT', 'right', 24, false);
-				animation.addByPrefix('singDOWN', 'down', 24, false);
-				animation.addByPrefix('singLEFT', 'left', 24, false);
-				animation.addByIndices('idle-alt', 'phones fall', [17], '', 24, false);
-				animation.addByPrefix('singUP-alt', 'sad up', 24, false);
-				animation.addByPrefix('singRIGHT-alt', 'sad right', 24, false);
-				animation.addByPrefix('singDOWN-alt', 'sad down', 24, false);
-				animation.addByPrefix('singLEFT-alt', 'sad left', 24, false);
-				animation.addByIndices('NOOMYPHONES', 'phones fall', [0, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 17], '', 24, false);
-
-				addOffset('idle');
-				addOffset("singUP", 0, 80);
-				addOffset("singRIGHT", 140, -80);
-				addOffset("singLEFT", 200);
-				addOffset("singDOWN", 0, -30);
-				
-				addOffset('NOOMYPHONES');
-
-				addOffset('idle-alt');
-				addOffset("singUP-alt", 0, 100);
-				addOffset("singRIGHT-alt", 30);
-				addOffset("singLEFT-alt", -20, -38);
-				addOffset("singDOWN-alt");
-
-				setGraphicSize(Std.int(width / furiosityScale));
-				updateHitbox();
-
-				antialiasing = false;
-				cameraPosition = json.camera_position;
-				if(json.healthbar_colors != null && json.healthbar_colors.length > 2)
-					healthColorArray = json.healthbar_colors;
-
-				playAnim('idle');
 			default:
 				var characterPath:String = 'characters/' + curCharacter + '.json';
 				#if MODS_ALLOWED
