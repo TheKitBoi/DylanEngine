@@ -207,10 +207,50 @@ class MainMenuState extends MusicBeatState
 											FlxG.sound.music.volume = 0;
 											FreeplayState.destroyFreeplayVocals();
 										});
+								case 'disruption':
+									PlayState.storyPlaylist = ["disruption"];
+									PlayState.isStoryMode = true;
+									PlayState.seenCutscene = false;
+
+									var diffic = CoolUtil.difficultyStuff[curDifficulty][1];
+									if (diffic == null) 
+										diffic = '';
+
+									PlayState.storyDifficulty = curDifficulty;
+
+									PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
+									PlayState.storyWeek = 1;
+									PlayState.campaignScore = 0;
+									PlayState.campaignMisses = 0;
+									new FlxTimer().start(0.5, function(tmr:FlxTimer)
+										{
+											LoadingState.loadAndSwitchState(new PlayState());
+											FlxG.sound.music.volume = 0;
+											FreeplayState.destroyFreeplayVocals();
+										});
+								case 'dissability':
+									PlayState.storyPlaylist = ["dissability"];
+									PlayState.isStoryMode = true;
+									PlayState.seenCutscene = false;
+
+									var diffic = CoolUtil.difficultyStuff[curDifficulty][1];
+									if (diffic == null) 
+										diffic = '';
+
+									PlayState.storyDifficulty = curDifficulty;
+
+									PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
+									PlayState.storyWeek = 1;
+									PlayState.campaignScore = 0;
+									PlayState.campaignMisses = 0;
+									new FlxTimer().start(0.5, function(tmr:FlxTimer)
+										{
+											LoadingState.loadAndSwitchState(new PlayState());
+											FlxG.sound.music.volume = 0;
+											FreeplayState.destroyFreeplayVocals();
+										});
 								case 'freeplay':
 									MusicBeatState.switchState(new FreeplayState());
-								case 'options':
-									MusicBeatState.switchState(new OptionsState());
 							}
 						});
 					}
