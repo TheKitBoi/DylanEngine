@@ -34,7 +34,7 @@ class ExtrasState extends MusicBeatState
 	var menuItems:FlxTypedGroup<FlxSprite>;
 	private var camGame:FlxCamera;
 	
-	var optionShit:Array<String> = ['applecore', 'disruption', 'dissability', 'freeplay'];
+	var optionShit:Array<String> = ['applecore', 'disruption', 'dissability', 'goingtofreeplay'];
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
@@ -187,68 +187,29 @@ class ExtrasState extends MusicBeatState
 							switch (daChoice)
 							{
 								case 'applecore':
-									PlayState.storyPlaylist = ["applecore"];
-									PlayState.isStoryMode = true;
-									PlayState.seenCutscene = false;
-
-									var diffic = CoolUtil.difficultyStuff[curDifficulty][1];
-									if (diffic == null) 
-										diffic = '';
-
-									PlayState.storyDifficulty = curDifficulty;
-
-									PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
+									var poop:String = Highscore.formatSong('AppleCore', 1);
+									PlayState.SONG = Song.loadFromJson(poop, 'applecore');
+									PlayState.isStoryMode = false;
+									PlayState.storyDifficulty = 1;
+						
 									PlayState.storyWeek = 1;
-									PlayState.campaignScore = 0;
-									PlayState.campaignMisses = 0;
-									new FlxTimer().start(0.5, function(tmr:FlxTimer)
-										{
-											LoadingState.loadAndSwitchState(new PlayState());
-											FlxG.sound.music.volume = 0;
-											FreeplayState.destroyFreeplayVocals();
-										});
+									LoadingState.loadAndSwitchState(new PlayState());
 								case 'disruption':
-									PlayState.storyPlaylist = ["disruption"];
-									PlayState.isStoryMode = true;
-									PlayState.seenCutscene = false;
-
-									var diffic = CoolUtil.difficultyStuff[curDifficulty][1];
-									if (diffic == null) 
-										diffic = '';
-
-									PlayState.storyDifficulty = curDifficulty;
-
-									PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
+									var poop:String = Highscore.formatSong('Disruption', 1);
+									PlayState.SONG = Song.loadFromJson(poop, 'diruption');
+									PlayState.isStoryMode = false;
+									PlayState.storyDifficulty = 1;
+						
 									PlayState.storyWeek = 1;
-									PlayState.campaignScore = 0;
-									PlayState.campaignMisses = 0;
-									new FlxTimer().start(0.5, function(tmr:FlxTimer)
-										{
-											LoadingState.loadAndSwitchState(new PlayState());
-											FlxG.sound.music.volume = 0;
-											FreeplayState.destroyFreeplayVocals();
-										});
-								case 'dissability':
-									PlayState.storyPlaylist = ["dissability"];
-									PlayState.isStoryMode = true;
-									PlayState.seenCutscene = false;
-
-									var diffic = CoolUtil.difficultyStuff[curDifficulty][1];
-									if (diffic == null) 
-										diffic = '';
-
-									PlayState.storyDifficulty = curDifficulty;
-
-									PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
+									LoadingState.loadAndSwitchState(new PlayState());
+								case 'disability':
+									var poop:String = Highscore.formatSong('Disability', 1);
+									PlayState.SONG = Song.loadFromJson(poop, 'disability');
+									PlayState.isStoryMode = false;
+									PlayState.storyDifficulty = 1;
+						
 									PlayState.storyWeek = 1;
-									PlayState.campaignScore = 0;
-									PlayState.campaignMisses = 0;
-									new FlxTimer().start(0.5, function(tmr:FlxTimer)
-										{
-											LoadingState.loadAndSwitchState(new PlayState());
-											FlxG.sound.music.volume = 0;
-											FreeplayState.destroyFreeplayVocals();
-										});
+									LoadingState.loadAndSwitchState(new PlayState());
 								case 'goingtofreeplay':
 									MusicBeatState.switchState(new FreeplayState());
 							}
