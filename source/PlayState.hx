@@ -443,6 +443,25 @@ class PlayState extends MusicBeatState
 				add(bg);
 				UsingNewCam = true;
 
+			case 'disabled':
+				defaultCamZoom = 0.9;
+				var bandubackground = new FlxSprite(-130, -94).loadGraphic(Paths.image('dylan/disabled'));
+				bandubackground.active = true;
+				var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
+				testshader.waveAmplitude = 0.1;
+				testshader.waveFrequency = 5;
+				testshader.waveSpeed = 2;
+				bandubackground.shader = testshader.shader;
+				curbg = bandubackground;
+				add(bandubackground);
+			case 'sugar-rushing':
+				defaultCamZoom = 0.85;
+				var swag:FlxSprite = new FlxSprite(120, -35).loadGraphic(Paths.image('bambi/pissing_too'));
+				swag.x -= 250;
+				swag.setGraphicSize(Std.int(swag.width  * 0.521814815));
+				swag.updateHitbox();
+				swag.antialiasing = false;
+				add(swag);
 			case 'cyclesbg':
 				var bandubackground = new FlxSprite(-130, -94).loadGraphic(Paths.image('dylan/yesThatIsATransFlag'));
 				bandubackground.active = true;
@@ -3103,7 +3122,7 @@ class PlayState extends MusicBeatState
 			remove(gf);
 			gf = new Character(400, 40, 'banduP2');
 			add(gf);
-
+			creditsWatermark.text = "Screw you!";
 			remove(dad);
 			dad = new Character(120, 80, 'disruptionbamb');
 			add(dad);
@@ -3133,7 +3152,7 @@ class PlayState extends MusicBeatState
 			camHUD.zoom -= 90000;
 			UsingNewCam = true;
 			add(bg);
-
+			creditsWatermark.text = "Ghost tapping is forced off! Screw you!";
 			remove(dad);
 			dad = new Character(120, 80, 'unfair');
 			add(dad);
@@ -3152,6 +3171,14 @@ class PlayState extends MusicBeatState
 			FlxG.camera.flash(FlxColor.WHITE, 5);
 			FlxG.camera.zoom += 0.015;
 			camHUD.zoom += 90000;
+		}
+
+		if (curStep == 172 && curSong.toLowerCase() == 'sugar-rush'){
+			FlxTween.tween(thunderBlack, {alpha: 0.35}, Conductor.stepCrochet / 500);
+		}
+
+		if (curStep == 204 && curSong.toLowerCase() == 'sugar-rush'){
+			FlxTween.tween(thunderBlack, {alpha: 0}, Conductor.stepCrochet / 500);
 		}
 
 
