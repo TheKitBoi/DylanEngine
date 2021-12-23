@@ -164,7 +164,6 @@ class PlayState extends MusicBeatState
 	public var playerStrums:FlxTypedGroup<StrumNote>;
 	public var grpNoteSplashes:FlxTypedGroup<NoteSplash>;
 	public var backgroundSprites:FlxTypedGroup<FlxSprite> = new FlxTypedGroup<FlxSprite>();
-	private var applecorebuttscene:HealthIcon;
 	public var camZooming:Bool = false;
 	private var curSong:String = "";
 
@@ -178,15 +177,24 @@ class PlayState extends MusicBeatState
 
 	private var timeBarBG:AttachedSprite;
 	public var timeBar:FlxBar;
-	
-
 	private var generatedMusic:Bool = false;
 	public var endingSong:Bool = false;
 	private var startingSong:Bool = false;
 	private var updateTime:Bool = false;
 	public static var changedDifficulty:Bool = false;
 	public static var cpuControlled:Bool = false;
+
+	// Engine Stuff
 	public static var dEngineVersion:String = '1.1.2';
+	var credits:String;
+	var dylanEngine:String = 'DylanEngine';
+	var randomThingy:Int = FlxG.random.int(0, 0);
+	var creditsText:Bool = credits != '';
+	var textYPos:Float = healthBarBG.y + 0;
+	var dylanEngineWatermark:FlxText;
+	var creditsWatermark:FlxText;
+
+	// idk
 	var botplaySine:Float = 0;
 	var botplayTxt:FlxText;
 
@@ -239,10 +247,6 @@ class PlayState extends MusicBeatState
 	var keysPressed:Array<Bool> = [false, false, false, false];
 	var boyfriendIdleTime:Float = 0.0;
 	var boyfriendIdled:Bool = false;
-
-	//watermark stuff
-	var dylanEngineWatermark:FlxText;
-	var creditsWatermark:FlxText;
 
 	// Lua shit
 	private var luaDebugGroup:FlxTypedGroup<DebugLuaText>;
@@ -576,6 +580,46 @@ class PlayState extends MusicBeatState
 		add(timeTxt);
 		timeBarBG.sprTracker = timeBar;
 
+		switch (SONG.song.toLowerCase())
+		{
+			case 'mealie':
+				credits = 'Original Song made by Alexander Cooper 19!';
+			case 'cheating':
+				credits = 'Stop cheatin bruv!';
+			case 'applecore':
+				credits = 'Recharted and ported by DylanK/ninjaninja140!';
+			default:
+				credits = 'DylanEngine is pretty cool ngl';
+			case 'cycles':
+				credits = 'Original song made by Vania for Vs. Sonic.exe!';
+		}
+
+		switch(randomThingy)
+	    {
+			case 0:
+				dylanEngine = 'DylanEngine ';
+		}
+
+		if (creditsText)
+		{
+			textYPos = timeBarBG.y + 30;
+		}
+		// Add Engine watermark
+
+		dylanEngineWatermark = new FlxText(4, textYPos, 0, SONG.song + " - " + dylanEngine + "(Version " + dEngineVersion + ") | PsychBase 0.4", 18);
+		dylanEngineWatermark.setFormat(Paths.font("vcr.ttf"), 18, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		dylanEngineWatermark.scrollFactor.set();
+		dylanEngineWatermark.borderSize = 1.25;
+		add(dylanEngineWatermark);
+		dylanEngineWatermark.cameras = [camHUD];
+
+		creditsWatermark = new FlxText(4, timeBarBG.y + 50, 0, credits, 18);
+		creditsWatermark.setFormat(Paths.font("vcr.ttf"), 18, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		creditsWatermark.scrollFactor.set();
+		creditsWatermark.borderSize = 1.25;
+		add(creditsWatermark);
+		creditsWatermark.cameras = [camHUD];
+
 		strumLineNotes = new FlxTypedGroup<StrumNote>();
 		add(strumLineNotes);
 		add(grpNoteSplashes);
@@ -656,49 +700,6 @@ class PlayState extends MusicBeatState
 		healthBar.visible = !ClientPrefs.hideHud;
 		add(healthBar);
 		healthBarBG.sprTracker = healthBar;
-
-		var credits:String;
-		switch (SONG.song.toLowerCase())
-		{
-			case 'mealie':
-				credits = 'Original Song made by Alexander Cooper 19!';
-			case 'cheating':
-				credits = 'Stop cheatin bruv!';
-			case 'applecore':
-				credits = 'Recharted and ported by DylanK/ninjaninja140!';
-			default:
-				credits = 'DylanEngine is pretty cool ngl';
-			case 'cycles':
-				credits = 'Original song made by Vania for Vs. Sonic.exe!';
-		}
-		var dylanEngine:String = 'DylanEngine';
-		var randomThingy:Int = FlxG.random.int(0, 0);
-		switch(randomThingy)
-	    {
-			case 0:
-				dylanEngine = 'DylanEngine ';
-		}
-		var creditsText:Bool = credits != '';
-		var textYPos:Float = healthBarBG.y + 50;
-		if (creditsText)
-		{
-			textYPos = healthBarBG.y + 30;
-		}
-		// Add Engine watermark
-
-		dylanEngineWatermark = new FlxText(4, textYPos, 0, SONG.song + " - " + dylanEngine + "(Version " + dEngineVersion + ")", 18);
-		dylanEngineWatermark.setFormat(Paths.font("vcr.ttf"), 18, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		dylanEngineWatermark.scrollFactor.set();
-		dylanEngineWatermark.borderSize = 1.25;
-		add(dylanEngineWatermark);
-		dylanEngineWatermark.cameras = [camHUD];
-
-		creditsWatermark = new FlxText(4, healthBarBG.y + 50, 0, credits, 18);
-		creditsWatermark.setFormat(Paths.font("vcr.ttf"), 18, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		creditsWatermark.scrollFactor.set();
-		creditsWatermark.borderSize = 1.25;
-		add(creditsWatermark);
-		creditsWatermark.cameras = [camHUD];
 
 		iconP1 = new HealthIcon(boyfriend.healthIcon, true);
 		iconP1.y = healthBar.y - (iconP1.height / 2);
