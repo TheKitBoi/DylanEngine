@@ -624,7 +624,7 @@ class PlayState extends MusicBeatState
 		var textYPos:Float = timeTxt.y - 50;
 		if (creditsText)
 		{
-			textYPos = timeTxt.y - 30;
+			textYPos = timeTxt.y;
 		}
 		// Add Engine watermark
 
@@ -635,7 +635,7 @@ class PlayState extends MusicBeatState
 		add(dylanEngineWatermark);
 		dylanEngineWatermark.cameras = [camHUD];
 
-		creditsWatermark = new FlxText(4, timeBarBG.y + 50, 0, credits, 18);
+		creditsWatermark = new FlxText(4, textYPos.y + 50, 0, credits, 18);
 		creditsWatermark.setFormat(Paths.font("vcr.ttf"), 18, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		creditsWatermark.scrollFactor.set();
 		creditsWatermark.borderSize = 1.25;
@@ -3114,7 +3114,7 @@ class PlayState extends MusicBeatState
 			var olddy = dad.y;
 			FlxG.camera.flash(FlxColor.BLACK, 5);
 			var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('dylan/poop'));
-			bg.setGraphicSize(2000, 3000);
+			bg.setGraphicSize(1500, 5000);
 			bg.active = true;
 			defaultCamZoom = 0.7;
 			var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
@@ -3136,6 +3136,7 @@ class PlayState extends MusicBeatState
 			remove(boyfriend);
 			boyfriend = new Boyfriend(oldbx, oldby, 'bf');
 			add(boyfriend);
+
 			iconP2.changeIcon(dad.healthIcon);
 			reloadHealthBarColors();
 		}
@@ -3143,7 +3144,7 @@ class PlayState extends MusicBeatState
 		if (curStep == 2974 && curSong.toLowerCase() == 'applecore'){
 			FlxG.camera.flash(FlxColor.BLACK, 5);
 			var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('dylan/yeah'));
-			bg.setGraphicSize(2000, 3000);
+			bg.setGraphicSize(1500, 5000);
 			bg.active = true;
 			defaultCamZoom = 0.7;
 			var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
@@ -3163,7 +3164,6 @@ class PlayState extends MusicBeatState
 			var oldby = boyfriend.y;
 			var olddx = dad.x; 
 			var olddy = dad.y;
-			UsingNewCam = true;
 			remove(dad);
 			dad = new Character(120, 80, 'unfair');
 			add(dad);
@@ -3171,12 +3171,28 @@ class PlayState extends MusicBeatState
 			remove(gf);
 
 			remove(boyfriend);
-			boyfriend = new Boyfriend(oldbx, oldby, 'bf-3d');
-			add(boyfriend);
+
 			iconP2.changeIcon(dad.healthIcon);
 
 			reloadHealthBarColors();
 		}
+
+		if (curStep == 2976 && curSong.toLowerCase() == 'applecore'){
+			var oldbx = boyfriend.x;
+			var oldby = boyfriend.y;
+			var olddx = dad.x; 
+			var olddy = dad.y;
+
+			remove(boyfriend);
+			boyfriend = new Boyfriend(oldbx, oldby, 'bf-3d');
+			add(boyfriend);
+
+			iconP1.changeIcon(dad.healthIcon);
+
+			reloadHealthBarColors();
+		}
+		
+
 
 		if (curStep == 2860 && curSong.toLowerCase() == 'applecore'){
 			FlxG.camera.flash(FlxColor.WHITE, 5);
