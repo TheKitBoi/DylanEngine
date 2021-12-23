@@ -249,7 +249,7 @@ class MainMenuState extends MusicBeatState
 											FlxG.sound.music.volume = 0;
 											FreeplayState.destroyFreeplayVocals();
 										});
-								case 'freeplay':
+								case 'goingtofreeplay':
 									MusicBeatState.switchState(new FreeplayState());
 							}
 						});
