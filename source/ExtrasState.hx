@@ -33,7 +33,7 @@ class ExtrasState extends MusicBeatState
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
 	private var camGame:FlxCamera;
-	
+	private var curSong:String = "";
 	var optionShit:Array<String> = ['applecore', 'disruption', 'dissability', 'goingtofreeplay'];
 
 	var magenta:FlxSprite;
@@ -218,33 +218,6 @@ class ExtrasState extends MusicBeatState
 				});
 				
 			}
-			#if desktop
-			else if (FlxG.keys.justPressed.SEVEN)
-			{
-				switch (curSong.toLowerCase())
-				{
-					case 'applecore':
-						PlayState.SONG = Song.loadFromJson("cheating", "cheating"); // you dun fucked up
-						screenshader.Enabled = false;
-						MusicBeatState.switchState(new PlayState());
-						return;
-						// FlxG.switchState(new VideoState('assets/videos/fortnite/fortniteballs.webm', new CrasherState()));
-					case 'cheating':
-						PlayState.SONG = Song.loadFromJson("disruption", "disruption"); // you dun fucked up again
-						screenshader.Enabled = false;
-						MusicBeatState.switchState(new PlayState());
-						return;
-					case 'disruption':
-						screenshader.Enabled = false;
-						MusicBeatState.switchState(new YouCheatedNowHeIsComing());
-					default:
-						PlayState.SONG = Song.loadFromJson("cheating", "cheating"); // you dun fucked up
-						screenshader.Enabled = false;
-						MusicBeatState.switchState(new PlayState());
-						return;
-				}
-			}
-			#end
 		}
 
 		super.update(elapsed);

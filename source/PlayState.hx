@@ -459,7 +459,7 @@ class PlayState extends MusicBeatState
 				add(bandubackground);
 			case 'sugar-rushing':
 				defaultCamZoom = 0.85;
-				var swag:FlxSprite = new FlxSprite(120, -35).loadGraphic(Paths.image('bambi/pissing_too'));
+				var swag:FlxSprite = new FlxSprite(120, -35).loadGraphic(Paths.image('dylan/pissing_too'));
 				swag.x -= 250;
 				swag.setGraphicSize(Std.int(swag.width  * 0.521814815));
 				swag.updateHitbox();
@@ -621,7 +621,7 @@ class PlayState extends MusicBeatState
 				dylanEngine = 'DylanEngine ';
 		}
 		var creditsText:Bool = credits != '';
-		var textYPos:Float = timeBarBG.y + 50;
+		var textYPos:Float = timeBarBG.y - 50;
 		if (creditsText)
 		{
 			textYPos = timeBarBG.y + 30;
@@ -3113,6 +3113,7 @@ class PlayState extends MusicBeatState
 			var olddy = dad.y;
 			FlxG.camera.flash(FlxColor.BLACK, 5);
 			var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('dylan/poop'));
+			bg.setGraphicSize(FlxG.width, FlxG.height);
 			bg.active = true;
 			defaultCamZoom = 0.7;
 			var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
@@ -3139,12 +3140,9 @@ class PlayState extends MusicBeatState
 		}
 
 		if (curStep == 2974 && curSong.toLowerCase() == 'applecore'){
-			var oldbx = boyfriend.x;
-			var oldby = boyfriend.y;
-			var olddx = dad.x; 
-			var olddy = dad.y;
 			FlxG.camera.flash(FlxColor.BLACK, 5);
 			var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('dylan/yeah'));
+			bg.setGraphicSize(FlxG.width, FlxG.height);
 			bg.active = true;
 			defaultCamZoom = 0.7;
 			var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
@@ -3153,10 +3151,18 @@ class PlayState extends MusicBeatState
 			testshader.waveSpeed = 2;
 			bg.shader = testshader.shader;
 			curbg = bg;
+			add(bg);
 			camHUD.zoom -= 90000;
 			UsingNewCam = true;
-			add(bg);
 			creditsWatermark.text = "Ghost tapping is forced off! Screw you!";
+		}
+
+		if (curStep == 2975 && curSong.toLowerCase() == 'applecore'){
+			var oldbx = boyfriend.x;
+			var oldby = boyfriend.y;
+			var olddx = dad.x; 
+			var olddy = dad.y;
+			UsingNewCam = true;
 			remove(dad);
 			dad = new Character(120, 80, 'unfair');
 			add(dad);
@@ -3177,11 +3183,11 @@ class PlayState extends MusicBeatState
 			camHUD.zoom += 90000;
 		}
 
-		if (curStep == 172 && curSong.toLowerCase() == 'sugar-rush'){
+		if (curStep == 688 && curSong.toLowerCase() == 'sugar-rush'){
 			FlxTween.tween(thunderBlack, {alpha: 0.35}, Conductor.stepCrochet / 500);
 		}
 
-		if (curStep == 204 && curSong.toLowerCase() == 'sugar-rush'){
+		if (curStep == 815 && curSong.toLowerCase() == 'sugar-rush'){
 			FlxTween.tween(thunderBlack, {alpha: 0}, Conductor.stepCrochet / 500);
 		}
 
