@@ -7,7 +7,7 @@ import sys.io.File;
 import sys.io.Process;
 import flixel.util.FlxColor;
 
-class SusState extends FlxState
+class OhDearWhatHaveYouDone extends MusicBeatState
 {
     var sus:FlxSprite;
 

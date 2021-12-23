@@ -1642,11 +1642,28 @@ class PlayState extends MusicBeatState
 			iconP2.animation.curAnim.curFrame = 0;
 
 		if (FlxG.keys.justPressed.EIGHT && !endingSong && !inCutscene) {
-			persistentUpdate = false;
-			paused = true;
-			cancelFadeTween();
-			CustomFadeTransition.nextCamera = camOther;
-			MusicBeatState.switchState(new CharacterEditorState(SONG.player2));
+			switch (curSong.toLowerCase())
+			{
+				case 'applecore':
+					PlayState.SONG = Song.loadFromJson("cheating", "cheating"); // you dun fucked up
+					screenshader.Enabled = false;
+					MusicBeatState.switchState(new PlayState());
+					return;
+					// FlxG.switchState(new VideoState('assets/videos/fortnite/fortniteballs.webm', new CrasherState()));
+				case 'cheating':
+					PlayState.SONG = Song.loadFromJson("mealie", "mealie"); // you dun fucked up again
+					screenshader.Enabled = false;
+					MusicBeatState.switchState(new PlayState());
+					return;
+				case 'disruption':
+					screenshader.Enabled = false;
+					MusicBeatState.switchState(new YouCheatedNowHeIsComing());
+				default:
+					PlayState.SONG = Song.loadFromJson("cheating", "cheating"); // you dun fucked up
+					screenshader.Enabled = false;
+					MusicBeatState.switchState(new PlayState());
+					return;
+			}
 		}
 
 		if (startingSong)
