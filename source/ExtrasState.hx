@@ -250,7 +250,7 @@ class ExtrasState extends MusicBeatState
 											FreeplayState.destroyFreeplayVocals();
 										});
 								case 'goingtofreeplay':
-									MusicBeatState.switchState(new FreeplayState());
+									MusicBeatState.switchState(new FreePlaySongsStateForOtherThings());
 							}
 						});
 					}
