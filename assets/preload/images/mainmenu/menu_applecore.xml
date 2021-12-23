@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="menu_applecore.png">
+	<!-- Created with Adobe Animate version 21.0.1.37179 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="applecore basic0000" x="10" y="958" width="593" height="130" pivotX="10.8" pivotY="21.95"/>
+	<SubTexture name="applecore basic0001" x="10" y="958" width="593" height="130"/>
+	<SubTexture name="applecore basic0002" x="10" y="958" width="593" height="130"/>
+	<SubTexture name="applecore basic0003" x="1846" y="959" width="593" height="130"/>
+	<SubTexture name="applecore basic0004" x="1846" y="959" width="593" height="130"/>
+	<SubTexture name="applecore basic0005" x="1846" y="959" width="593" height="130"/>
+	<SubTexture name="applecore basic0006" x="1211" y="964" width="593" height="130"/>
+	<SubTexture name="applecore basic0007" x="1211" y="964" width="593" height="130"/>
+	<SubTexture name="applecore basic0008" x="1211" y="964" width="593" height="130"/>
+	<SubTexture name="applecore white0000" x="2321" y="329" width="677" height="149" pivotX="52.95" pivotY="31" frameX="0" frameY="0" frameWidth="679" frameHeight="154"/>
+	<SubTexture name="applecore white0001" x="10" y="190" width="678" height="149" frameX="0" frameY="-1" frameWidth="679" frameHeight="154"/>
+	<SubTexture name="applecore white0002" x="1632" y="185" width="679" height="152" frameX="0" frameY="-2" frameWidth="679" frameHeight="154"/>
+</TextureAtlas>
