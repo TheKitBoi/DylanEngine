@@ -26,7 +26,7 @@ import WeekData;
 
 using StringTools;
 
-class MainMenuState extends MusicBeatState
+class ExtrasState extends MusicBeatState
 {
 	public static var dEngineVersion:String = '1.1.2'; //This is also used for Discord RPC
 	public static var curSelected:Int = 0;
