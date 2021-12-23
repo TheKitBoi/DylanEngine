@@ -111,7 +111,7 @@ class ExtrasState extends MusicBeatState
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin' v" + Application.current.meta.get('version'), 12);
+		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin' v0.5", 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
@@ -187,7 +187,7 @@ class ExtrasState extends MusicBeatState
 							switch (daChoice)
 							{
 								case 'applecore':
-									var poop:String = Highscore.formatSong('AppleCore', 1);
+									var poop:String = Highscore.formatSong('applecore', 1);
 									PlayState.SONG = Song.loadFromJson(poop, 'applecore');
 									PlayState.isStoryMode = false;
 									PlayState.storyDifficulty = 1;
@@ -195,20 +195,20 @@ class ExtrasState extends MusicBeatState
 									PlayState.storyWeek = 1;
 									LoadingState.loadAndSwitchState(new PlayState());
 								case 'disruption':
-									var poop:String = Highscore.formatSong('Disruption', 1);
+									var poop:String = Highscore.formatSong('disruption', 1);
 									PlayState.SONG = Song.loadFromJson(poop, 'diruption');
 									PlayState.isStoryMode = false;
 									PlayState.storyDifficulty = 1;
 						
-									PlayState.storyWeek = 1;
+									PlayState.storyWeek = 2;
 									LoadingState.loadAndSwitchState(new PlayState());
 								case 'disability':
-									var poop:String = Highscore.formatSong('Disability', 1);
+									var poop:String = Highscore.formatSong('disability', 1);
 									PlayState.SONG = Song.loadFromJson(poop, 'disability');
 									PlayState.isStoryMode = false;
 									PlayState.storyDifficulty = 1;
 						
-									PlayState.storyWeek = 1;
+									PlayState.storyWeek = 3;
 									LoadingState.loadAndSwitchState(new PlayState());
 								case 'goingtofreeplay':
 									MusicBeatState.switchState(new FreeplayState());
@@ -221,8 +221,28 @@ class ExtrasState extends MusicBeatState
 			#if desktop
 			else if (FlxG.keys.justPressed.SEVEN)
 			{
-				selectedSomethin = true;
-				MusicBeatState.switchState(new MasterEditorMenu());
+				switch (curSong.toLowerCase())
+				{
+					case 'applecore':
+						PlayState.SONG = Song.loadFromJson("cheating", "cheating"); // you dun fucked up
+						screenshader.Enabled = false;
+						MusicBeatState.switchState(new PlayState());
+						return;
+						// FlxG.switchState(new VideoState('assets/videos/fortnite/fortniteballs.webm', new CrasherState()));
+					case 'cheating':
+						PlayState.SONG = Song.loadFromJson("disruption", "disruption"); // you dun fucked up again
+						screenshader.Enabled = false;
+						MusicBeatState.switchState(new PlayState());
+						return;
+					case 'disruption':
+						screenshader.Enabled = false;
+						MusicBeatState.switchState(new YouCheatedNowHeIsComing());
+					default:
+						PlayState.SONG = Song.loadFromJson("cheating", "cheating"); // you dun fucked up
+						screenshader.Enabled = false;
+						MusicBeatState.switchState(new PlayState());
+						return;
+				}
 			}
 			#end
 		}

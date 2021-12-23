@@ -232,7 +232,7 @@ class PlayState extends MusicBeatState
 	var detailsText:String = "";
 	var detailsPausedText:String = "";
 	#end
-
+	var thunderBlack:FlxSprite;
 	private var luaArray:Array<FunkinLua> = [];
 
 	//Achievement shit
@@ -323,7 +323,10 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-
+		thunderBlack = new FlxSprite().makeGraphic(FlxG.width * 4, FlxG.height * 4, FlxColor.BLACK);
+		thunderBlack.screenCenter();
+		thunderBlack.alpha = 0;
+		add(thunderBlack);
 
 		var stageData:StageFile = StageData.getStageFile(curStage);
 		if(stageData == null) { //Stage couldn't be found, create a dummy stage for preventing a crash
@@ -500,6 +503,7 @@ class PlayState extends MusicBeatState
 			}
 		}
 		
+		thunderBlack.cameras = [camHUD];
 		screenshader.waveAmplitude = 1;
 		screenshader.waveFrequency = 2;
 		screenshader.waveSpeed = 1;
