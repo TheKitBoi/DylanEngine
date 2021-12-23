@@ -621,10 +621,10 @@ class PlayState extends MusicBeatState
 				dylanEngine = 'DylanEngine ';
 		}
 		var creditsText:Bool = credits != '';
-		var textYPos:Float = timeBarBG.y - 50;
+		var textYPos:Float = timeTxt.y - 50;
 		if (creditsText)
 		{
-			textYPos = timeBarBG.y + 30;
+			textYPos = timeTxt.y - 30;
 		}
 		// Add Engine watermark
 
@@ -641,6 +641,7 @@ class PlayState extends MusicBeatState
 		creditsWatermark.borderSize = 1.25;
 		add(creditsWatermark);
 		creditsWatermark.cameras = [camHUD];
+
 		strumLineNotes = new FlxTypedGroup<StrumNote>();
 		add(strumLineNotes);
 		add(grpNoteSplashes);
@@ -3113,7 +3114,7 @@ class PlayState extends MusicBeatState
 			var olddy = dad.y;
 			FlxG.camera.flash(FlxColor.BLACK, 5);
 			var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('dylan/poop'));
-			bg.setGraphicSize(FlxG.width, FlxG.height);
+			bg.setGraphicSize(2000, 3000);
 			bg.active = true;
 			defaultCamZoom = 0.7;
 			var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
@@ -3142,7 +3143,7 @@ class PlayState extends MusicBeatState
 		if (curStep == 2974 && curSong.toLowerCase() == 'applecore'){
 			FlxG.camera.flash(FlxColor.BLACK, 5);
 			var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('dylan/yeah'));
-			bg.setGraphicSize(FlxG.width, FlxG.height);
+			bg.setGraphicSize(2000, 3000);
 			bg.active = true;
 			defaultCamZoom = 0.7;
 			var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
