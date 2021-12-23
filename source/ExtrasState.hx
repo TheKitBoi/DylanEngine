@@ -34,7 +34,7 @@ class MainMenuState extends MusicBeatState
 	var menuItems:FlxTypedGroup<FlxSprite>;
 	private var camGame:FlxCamera;
 	
-	var optionShit:Array<String> = ['story_mode', 'freeplay', 'options', 'donate'];
+	var optionShit:Array<String> = ['applecore', 'disruption', 'dissability', 'freeplay'];
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
@@ -111,7 +111,7 @@ class MainMenuState extends MusicBeatState
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin' v0.5", 12);
+		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin' v" + Application.current.meta.get('version'), 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
@@ -186,7 +186,7 @@ class MainMenuState extends MusicBeatState
 
 							switch (daChoice)
 							{
-								case 'story_mode':
+								case 'applecore':
 									PlayState.storyPlaylist = ["applecore"];
 									PlayState.isStoryMode = true;
 									PlayState.seenCutscene = false;
@@ -208,11 +208,9 @@ class MainMenuState extends MusicBeatState
 											FreeplayState.destroyFreeplayVocals();
 										});
 								case 'freeplay':
-									MusicBeatState.switchState(new ExtrasState());
+									MusicBeatState.switchState(new FreeplayState());
 								case 'options':
 									MusicBeatState.switchState(new OptionsState());
-								case 'donate':
-									CoolUtil.browserLoad('https://discord.gg/ndf8k9n4G4');
 							}
 						});
 					}
