@@ -903,33 +903,6 @@ class PlayState extends MusicBeatState
 			startCountdown();
 		}
 	}
-	public function iconyeet(guyWhoComesIn:String = 'disruption_bambi', guyWhoFliesOut:String = 'bandu')
-		{
-			hasTriggeredDumbshit = true;
-			if(applecorebuttscene != null)
-			{
-				remove(applecorebuttscene);
-			}
-			applecorebuttscene = new HealthIcon(guyWhoComesIn, false);
-			applecorebuttscene.y = healthBar.y - (applecorebuttscene.height / 2);
-			add(applecorebuttscene);
-			applecorebuttscene.cameras = [camHUD];
-			applecorebuttscene.x = -100;
-			FlxTween.linearMotion(applecorebuttscene, -100, applecorebuttscene.y, iconP2.x, applecorebuttscene.y, 0.3, true, {ease: FlxEase.expoInOut});
-			AUGHHHH = guyWhoComesIn;
-			AHHHHH = guyWhoFliesOut;
-			new FlxTimer().start(0.3, FlingCharacterIconToOblivionAndBeyond);
-		}
-
-	function FlingCharacterIconToOblivionAndBeyond(e:FlxTimer = null):Void
-		{
-			iconP2.animation.play(AUGHHHH, true);
-			applecorebuttscene.animation.play(AHHHHH, true, false, 1);
-			stupidx = -5;
-			stupidy = -5;
-			updatevels = true;
-				
-		}
 	var dialogueCount:Int = 0;
 	//You don't have to add a song, just saying. You can just do "startDialogue(dialogueJson);" and it should work
 	public function startDialogue(dialogueFile:DialogueFile, ?song:String = null):Void
@@ -3121,12 +3094,6 @@ class PlayState extends MusicBeatState
 			boyfriend = new Boyfriend(oldbx, oldby, 'bf');
 			add(boyfriend);
 			iconP2.changeIcon(dad.healthIcon);
-			
-			if (!hasTriggeredDumbshit)
-				{
-					iconyeet('disruption_bambi', 'bandu');
-				}
-
 			reloadHealthBarColors();
 		}
 
@@ -3152,15 +3119,13 @@ class PlayState extends MusicBeatState
 			remove(dad);
 			dad = new Character(120, 80, 'unfair');
 			add(dad);
+			
 			remove(gf);
+
 			remove(boyfriend);
 			boyfriend = new Boyfriend(oldbx, oldby, 'bf-3d');
 			add(boyfriend);
 			iconP2.changeIcon(dad.healthIcon);
-			if (!hasTriggeredDumbshit)
-				{
-					iconyeet('unfairness_expunged', 'disruption_bambi');
-				}
 
 			reloadHealthBarColors();
 		}
