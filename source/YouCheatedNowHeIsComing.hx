@@ -10,7 +10,7 @@ import flixel.util.FlxTimer;
 /**
  * scary!!!
  */
-class YouCheatedSomeoneIsComing extends MusicBeatState
+class YouCheatedNowHeIsComing extends MusicBeatState
 {
 	
 	public function new() 
@@ -35,7 +35,7 @@ class YouCheatedSomeoneIsComing extends MusicBeatState
 		
 		if (FlxG.keys.pressed.ENTER)
 		{
-			MusicBeatState.resetState(new OhDearWhatHaveYouDone());
+			MusicBeatState.switchState(new OhDearWhatHaveYouDone());
 		}
 		
 	}

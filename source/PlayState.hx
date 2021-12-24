@@ -232,7 +232,7 @@ class PlayState extends MusicBeatState
 	var detailsText:String = "";
 	var detailsPausedText:String = "";
 	#end
-
+	var thunderBlack:FlxSprite;
 	private var luaArray:Array<FunkinLua> = [];
 
 	//Achievement shit
@@ -323,7 +323,10 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-
+		thunderBlack = new FlxSprite().makeGraphic(FlxG.width * 4, FlxG.height * 4, FlxColor.BLACK);
+		thunderBlack.screenCenter();
+		thunderBlack.alpha = 0;
+		add(thunderBlack);
 
 		var stageData:StageFile = StageData.getStageFile(curStage);
 		if(stageData == null) { //Stage couldn't be found, create a dummy stage for preventing a crash
@@ -443,6 +446,25 @@ class PlayState extends MusicBeatState
 				add(bg);
 				UsingNewCam = true;
 
+			case 'disabled':
+				defaultCamZoom = 0.9;
+				var bandubackground = new FlxSprite(-130, -94).loadGraphic(Paths.image('dylan/disabled'));
+				bandubackground.active = true;
+				var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
+				testshader.waveAmplitude = 0.1;
+				testshader.waveFrequency = 5;
+				testshader.waveSpeed = 2;
+				bandubackground.shader = testshader.shader;
+				curbg = bandubackground;
+				add(bandubackground);
+			case 'sugar-rushing':
+				defaultCamZoom = 0.85;
+				var swag:FlxSprite = new FlxSprite(120, -35).loadGraphic(Paths.image('dylan/pissing_too'));
+				swag.x -= 250;
+				swag.setGraphicSize(Std.int(swag.width  * 0.521814815));
+				swag.updateHitbox();
+				swag.antialiasing = false;
+				add(swag);
 			case 'cyclesbg':
 				var bandubackground = new FlxSprite(-130, -94).loadGraphic(Paths.image('dylan/yesThatIsATransFlag'));
 				bandubackground.active = true;
@@ -481,6 +503,7 @@ class PlayState extends MusicBeatState
 			}
 		}
 		
+		thunderBlack.cameras = [camHUD];
 		screenshader.waveAmplitude = 1;
 		screenshader.waveFrequency = 2;
 		screenshader.waveSpeed = 1;
@@ -576,6 +599,49 @@ class PlayState extends MusicBeatState
 		add(timeTxt);
 		timeBarBG.sprTracker = timeBar;
 
+		var credits:String;
+		switch (SONG.song.toLowerCase())
+		{
+			case 'mealie':
+				credits = 'Original Song made by Alexander Cooper 19!';
+			case 'cheating':
+				credits = 'Stop cheatin bruv!';
+			case 'applecore':
+				credits = 'Recharted and ported by DylanK/ninjaninja140!';
+			default:
+				credits = 'DylanEngine is pretty cool ngl';
+			case 'cycles':
+				credits = 'Original song made by Vania for Vs. Sonic.exe!';
+		}
+		var dylanEngine:String = 'DylanEngine';
+		var randomThingy:Int = FlxG.random.int(0, 0);
+		switch(randomThingy)
+	    {
+			case 0:
+				dylanEngine = 'DylanEngine ';
+		}
+		var creditsText:Bool = credits != '';
+		var textYPos:Float = timeTxt.y - 50;
+		if (creditsText)
+		{
+			textYPos = timeTxt.y;
+		}
+		// Add Engine watermark
+
+		dylanEngineWatermark = new FlxText(4, textYPos, 0, SONG.song + " - " + dylanEngine + "(Version " + dEngineVersion + ") | PsychBase 0.4", 18);
+		dylanEngineWatermark.setFormat(Paths.font("vcr.ttf"), 18, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		dylanEngineWatermark.scrollFactor.set();
+		dylanEngineWatermark.borderSize = 1.25;
+		add(dylanEngineWatermark);
+		dylanEngineWatermark.cameras = [camHUD];
+
+		creditsWatermark = new FlxText(4, textYPos.y + 50, 0, credits, 18);
+		creditsWatermark.setFormat(Paths.font("vcr.ttf"), 18, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		creditsWatermark.scrollFactor.set();
+		creditsWatermark.borderSize = 1.25;
+		add(creditsWatermark);
+		creditsWatermark.cameras = [camHUD];
+
 		strumLineNotes = new FlxTypedGroup<StrumNote>();
 		add(strumLineNotes);
 		add(grpNoteSplashes);
@@ -657,48 +723,7 @@ class PlayState extends MusicBeatState
 		add(healthBar);
 		healthBarBG.sprTracker = healthBar;
 
-		var credits:String;
-		switch (SONG.song.toLowerCase())
-		{
-			case 'mealie':
-				credits = 'Original Song made by Alexander Cooper 19!';
-			case 'cheating':
-				credits = 'Stop cheatin bruv!';
-			case 'applecore':
-				credits = 'Recharted and ported by DylanK/ninjaninja140!';
-			default:
-				credits = 'DylanEngine is pretty cool ngl';
-			case 'cycles':
-				credits = 'Original song made by Vania for Vs. Sonic.exe!';
-		}
-		var dylanEngine:String = 'DylanEngine';
-		var randomThingy:Int = FlxG.random.int(0, 0);
-		switch(randomThingy)
-	    {
-			case 0:
-				dylanEngine = 'DylanEngine ';
-		}
-		var creditsText:Bool = credits != '';
-		var textYPos:Float = healthBarBG.y + 50;
-		if (creditsText)
-		{
-			textYPos = healthBarBG.y + 30;
-		}
-		// Add Engine watermark
 
-		dylanEngineWatermark = new FlxText(4, textYPos, 0, SONG.song + " - " + dylanEngine + "(Version " + dEngineVersion + ")", 18);
-		dylanEngineWatermark.setFormat(Paths.font("vcr.ttf"), 18, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		dylanEngineWatermark.scrollFactor.set();
-		dylanEngineWatermark.borderSize = 1.25;
-		add(dylanEngineWatermark);
-		dylanEngineWatermark.cameras = [camHUD];
-
-		creditsWatermark = new FlxText(4, healthBarBG.y + 50, 0, credits, 18);
-		creditsWatermark.setFormat(Paths.font("vcr.ttf"), 18, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		creditsWatermark.scrollFactor.set();
-		creditsWatermark.borderSize = 1.25;
-		add(creditsWatermark);
-		creditsWatermark.cameras = [camHUD];
 
 		iconP1 = new HealthIcon(boyfriend.healthIcon, true);
 		iconP1.y = healthBar.y - (iconP1.height / 2);
@@ -903,33 +928,6 @@ class PlayState extends MusicBeatState
 			startCountdown();
 		}
 	}
-	public function iconyeet(guyWhoComesIn:String = 'disruption_bambi', guyWhoFliesOut:String = 'bandu')
-		{
-			hasTriggeredDumbshit = true;
-			if(applecorebuttscene != null)
-			{
-				remove(applecorebuttscene);
-			}
-			applecorebuttscene = new HealthIcon(guyWhoComesIn, false);
-			applecorebuttscene.y = healthBar.y - (applecorebuttscene.height / 2);
-			add(applecorebuttscene);
-			applecorebuttscene.cameras = [camHUD];
-			applecorebuttscene.x = -100;
-			FlxTween.linearMotion(applecorebuttscene, -100, applecorebuttscene.y, iconP2.x, applecorebuttscene.y, 0.3, true, {ease: FlxEase.expoInOut});
-			AUGHHHH = guyWhoComesIn;
-			AHHHHH = guyWhoFliesOut;
-			new FlxTimer().start(0.3, FlingCharacterIconToOblivionAndBeyond);
-		}
-
-	function FlingCharacterIconToOblivionAndBeyond(e:FlxTimer = null):Void
-		{
-			iconP2.animation.play(AUGHHHH, true);
-			applecorebuttscene.animation.play(AHHHHH, true, false, 1);
-			stupidx = -5;
-			stupidy = -5;
-			updatevels = true;
-				
-		}
 	var dialogueCount:Int = 0;
 	//You don't have to add a song, just saying. You can just do "startDialogue(dialogueJson);" and it should work
 	public function startDialogue(dialogueFile:DialogueFile, ?song:String = null):Void
@@ -1668,11 +1666,28 @@ class PlayState extends MusicBeatState
 			iconP2.animation.curAnim.curFrame = 0;
 
 		if (FlxG.keys.justPressed.EIGHT && !endingSong && !inCutscene) {
-			persistentUpdate = false;
-			paused = true;
-			cancelFadeTween();
-			CustomFadeTransition.nextCamera = camOther;
-			MusicBeatState.switchState(new CharacterEditorState(SONG.player2));
+			switch (curSong.toLowerCase())
+			{
+				case 'applecore':
+					PlayState.SONG = Song.loadFromJson("cheating", "cheating"); // you dun fucked up
+					screenshader.Enabled = false;
+					MusicBeatState.switchState(new PlayState());
+					return;
+					// FlxG.switchState(new VideoState('assets/videos/fortnite/fortniteballs.webm', new CrasherState()));
+				case 'cheating':
+					PlayState.SONG = Song.loadFromJson("disruption", "disruption"); // you dun fucked up again
+					screenshader.Enabled = false;
+					MusicBeatState.switchState(new PlayState());
+					return;
+				case 'disruption':
+					screenshader.Enabled = false;
+					MusicBeatState.switchState(new YouCheatedNowHeIsComing());
+				default:
+					PlayState.SONG = Song.loadFromJson("cheating", "cheating"); // you dun fucked up
+					screenshader.Enabled = false;
+					MusicBeatState.switchState(new PlayState());
+					return;
+			}
 		}
 
 		if (startingSong)
@@ -2465,7 +2480,7 @@ class PlayState extends MusicBeatState
 					if(FlxTransitionableState.skipNextTransIn) {
 						CustomFadeTransition.nextCamera = null;
 					}
-					MusicBeatState.switchState(new StoryMenuState());
+					MusicBeatState.switchState(new MainMenuState());
 
 					// if ()
 					changedDifficulty = false;
@@ -3099,6 +3114,7 @@ class PlayState extends MusicBeatState
 			var olddy = dad.y;
 			FlxG.camera.flash(FlxColor.BLACK, 5);
 			var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('dylan/poop'));
+			bg.setGraphicSize(1500, 5000);
 			bg.active = true;
 			defaultCamZoom = 0.7;
 			var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
@@ -3112,7 +3128,7 @@ class PlayState extends MusicBeatState
 			remove(gf);
 			gf = new Character(400, 40, 'banduP2');
 			add(gf);
-
+			creditsWatermark.text = "Screw you!";
 			remove(dad);
 			dad = new Character(120, 80, 'disruptionbamb');
 			add(dad);
@@ -3120,23 +3136,15 @@ class PlayState extends MusicBeatState
 			remove(boyfriend);
 			boyfriend = new Boyfriend(oldbx, oldby, 'bf');
 			add(boyfriend);
-			iconP2.changeIcon(dad.healthIcon);
-			
-			if (!hasTriggeredDumbshit)
-				{
-					iconyeet('disruption_bambi', 'bandu');
-				}
 
+			iconP2.changeIcon(dad.healthIcon);
 			reloadHealthBarColors();
 		}
 
 		if (curStep == 2974 && curSong.toLowerCase() == 'applecore'){
-			var oldbx = boyfriend.x;
-			var oldby = boyfriend.y;
-			var olddx = dad.x; 
-			var olddy = dad.y;
 			FlxG.camera.flash(FlxColor.BLACK, 5);
 			var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('dylan/yeah'));
+			bg.setGraphicSize(1500, 5000);
 			bg.active = true;
 			defaultCamZoom = 0.7;
 			var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
@@ -3145,30 +3153,59 @@ class PlayState extends MusicBeatState
 			testshader.waveSpeed = 2;
 			bg.shader = testshader.shader;
 			curbg = bg;
+			add(bg);
 			camHUD.zoom -= 90000;
 			UsingNewCam = true;
-			add(bg);
+			creditsWatermark.text = "Ghost tapping is forced off! Screw you!";
+		}
 
+		if (curStep == 2975 && curSong.toLowerCase() == 'applecore'){
+			var oldbx = boyfriend.x;
+			var oldby = boyfriend.y;
+			var olddx = dad.x; 
+			var olddy = dad.y;
 			remove(dad);
 			dad = new Character(120, 80, 'unfair');
 			add(dad);
+			
 			remove(gf);
+
 			remove(boyfriend);
-			boyfriend = new Boyfriend(oldbx, oldby, 'bf-3d');
-			add(boyfriend);
+
 			iconP2.changeIcon(dad.healthIcon);
-			if (!hasTriggeredDumbshit)
-				{
-					iconyeet('unfairness_expunged', 'disruption_bambi');
-				}
 
 			reloadHealthBarColors();
 		}
+
+		if (curStep == 2976 && curSong.toLowerCase() == 'applecore'){
+			var oldbx = boyfriend.x;
+			var oldby = boyfriend.y;
+			var olddx = dad.x; 
+			var olddy = dad.y;
+
+			remove(boyfriend);
+			boyfriend = new Boyfriend(oldbx, oldby, 'bf-3d');
+			add(boyfriend);
+
+			iconP1.changeIcon(dad.healthIcon);
+
+			reloadHealthBarColors();
+		}
+		
+
 
 		if (curStep == 2860 && curSong.toLowerCase() == 'applecore'){
 			FlxG.camera.flash(FlxColor.WHITE, 5);
 			FlxG.camera.zoom += 0.015;
 			camHUD.zoom += 90000;
+		}
+
+		if (curStep == 688 && curSong.toLowerCase() == 'sugar-rush'){
+			FlxTween.tween(thunderBlack, {alpha: 0.35}, Conductor.stepCrochet / 500);
+		}
+
+		if (curStep == 815 && curSong.toLowerCase() == 'sugar-rush'){
+			FlxTween.tween(thunderBlack, {alpha: 0}, Conductor.stepCrochet / 500);
 		}
 
 

@@ -7,7 +7,7 @@ import sys.io.File;
 import sys.io.Process;
 import flixel.util.FlxColor;
 
-class SusState extends FlxState
+class OhDearWhatHaveYouDone extends MusicBeatState
 {
     var sus:FlxSprite;
 
@@ -20,12 +20,24 @@ class SusState extends FlxState
         super.create();
         FlxG.sound.playMusic(Paths.music('dooDooFeces'),1,true);
         sus = new FlxSprite(0, 0);
-        sus.loadGraphic(Paths.image("dylan/cheated"));
+        sus.loadGraphic(Paths.image("dylan/cheating"));
+        sus.setGraphicSize(FlxG.width, FlxG.height);
         add(sus);
-        new FlxTimer().start(0.6, closeGame);
+    }
+
+    override public function update(elapsed:Float):Void 
+    {
+        super.update(elapsed);
+            
+        if (FlxG.keys.pressed.ENTER)
+        {
+            closeGame();
+        }
+            
     }
     public function closeGame(time:FlxTimer = null)
-    {
-        System.exit(0);
-    }
+        {
+            System.exit(0);
+        }
 }
+

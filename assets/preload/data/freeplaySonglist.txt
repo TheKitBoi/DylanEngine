@@ -1,5 +1,5 @@
-applecore:bandu:9
-mealie:disruption:9
+sugar-rush:bandu:9
 logestic:bandu:9
 cycles:bandu:9
-cheating:unfair:9
+mealie:disruption_bambi:9
+cheating:unfairness_expunged:9

@@ -34,7 +34,7 @@ class MainMenuState extends MusicBeatState
 	var menuItems:FlxTypedGroup<FlxSprite>;
 	private var camGame:FlxCamera;
 	
-	var optionShit:Array<String> = ['story_mode', 'freeplay', 'options'];
+	var optionShit:Array<String> = ['applecore', 'freeplay', 'options', 'donate'];
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
@@ -59,7 +59,7 @@ class MainMenuState extends MusicBeatState
 		persistentUpdate = persistentDraw = true;
 
 		var yScroll:Float = Math.max(0.25 - (0.05 * (optionShit.length - 4)), 0.1);
-		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menuBGBlue'));
+		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
 		bg.scrollFactor.set(0, yScroll);
 		bg.setGraphicSize(Std.int(bg.width * 1.175));
 		bg.updateHitbox();
@@ -72,7 +72,7 @@ class MainMenuState extends MusicBeatState
 		add(camFollow);
 		add(camFollowPos);
 
-		magenta = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
+		magenta = new FlxSprite(-80).loadGraphic(Paths.image('menuBGBlue'));
 		magenta.scrollFactor.set(0, yScroll);
 		magenta.setGraphicSize(Std.int(magenta.width * 1.175));
 		magenta.updateHitbox();
@@ -111,7 +111,7 @@ class MainMenuState extends MusicBeatState
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin' v" + Application.current.meta.get('version'), 12);
+		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin' v0.5", 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
@@ -186,31 +186,20 @@ class MainMenuState extends MusicBeatState
 
 							switch (daChoice)
 							{
-								case 'story_mode':
-									PlayState.storyPlaylist = ["applecore"];
-									PlayState.isStoryMode = true;
-									PlayState.seenCutscene = false;
-
-									var diffic = CoolUtil.difficultyStuff[curDifficulty][1];
-									if (diffic == null) 
-										diffic = '';
-
-									PlayState.storyDifficulty = curDifficulty;
-
-									PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
+								case 'applecore':
+									var poop:String = Highscore.formatSong('AppleCore', 1);
+									PlayState.SONG = Song.loadFromJson(poop, 'applecore');
+									PlayState.isStoryMode = false;
+									PlayState.storyDifficulty = 1;
+						
 									PlayState.storyWeek = 1;
-									PlayState.campaignScore = 0;
-									PlayState.campaignMisses = 0;
-									new FlxTimer().start(0.5, function(tmr:FlxTimer)
-										{
-											LoadingState.loadAndSwitchState(new PlayState());
-											FlxG.sound.music.volume = 0;
-											FreeplayState.destroyFreeplayVocals();
-										});
+									LoadingState.loadAndSwitchState(new PlayState());
 								case 'freeplay':
-									MusicBeatState.switchState(new FreeplayState());
+									MusicBeatState.switchState(new ExtrasState());
 								case 'options':
 									MusicBeatState.switchState(new OptionsState());
+								case 'donate':
+									CoolUtil.browserLoad('https://discord.gg/ndf8k9n4G4');
 							}
 						});
 					}
